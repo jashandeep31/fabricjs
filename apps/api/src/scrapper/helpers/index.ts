@@ -3,7 +3,8 @@ import { PREV_WEBSITE_URL_BASE, ROOT_PATH, getCustomSlug } from "../../utils";
 import * as cheerio from "cheerio";
 import path from "path";
 import fs from "fs";
-import { processAndReturnTableData } from "./processAndReturnTableData";
+import { TableDataProcessor } from "./processAndReturnTableData";
+// import { processAndReturnTableData } from "./processAndReturnTableData";
 
 // constants
 const HTML_CACHE_PATH = `${ROOT_PATH}/html-cache`;
@@ -58,13 +59,18 @@ export async function proccessAndReturnProperty(
   const prevUrl =
     url +
     $(element).find("a:first").attr("href")?.replace(PREV_WEBSITE_URL_BASE, "");
+  console.log(prevUrl);
 
   const table = $(element).find("table").first();
   if (table.length) {
-    console.log("table found ✅");
-    processAndReturnTableData(element);
+    // console.log("table found ✅");
+    // processAndReturnTableData(element);
+    const processor = new TableDataProcessor(element);
+
+    // Process the table data
+    processor.processAndReturnTableData();
   } else {
     // direct process the data
-    console.log("table not found ❌");
+    // console.log("table not found ❌");
   }
 }
