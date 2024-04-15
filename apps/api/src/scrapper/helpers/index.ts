@@ -37,14 +37,14 @@ export async function scrapStoreAndReturnRawData(
   }
 }
 
-export async function proccessAndReturnProperty(
+export async function processAndReturnProperty(
   element: cheerio.Element,
   url: string
 ) {
   const $ = cheerio.load(element);
   const allAnchorTags = $(element).find("a");
 
-  // gettting the title of the property
+  // getting the title of the property
   let title: string = "";
   allAnchorTags.first().each((index, aTag) => {
     $(aTag).each((index, element) => {
@@ -52,7 +52,7 @@ export async function proccessAndReturnProperty(
       title = $(element).text();
     });
   });
-  // getting the dscription of the property
+  // getting the description of the property
   const description = $(element).find("div.description").text().trim();
 
   // getting the prev website url for reference (!!   PREV_WEBSITE_URL_BASE is used to make url the dynamic   !!)
@@ -63,14 +63,10 @@ export async function proccessAndReturnProperty(
 
   const table = $(element).find("table").first();
   if (table.length) {
-    // console.log("table found ✅");
-    // processAndReturnTableData(element);
     const processor = new TableDataProcessor(element);
-
-    // Process the table data
-    processor.processAndReturnTableData();
+    const res = processor.processAndReturnTableData();
+    // fs.writeFileSync(ROOT_PATH + "/sample.json", JSON.stringify(res));
   } else {
     // direct process the data
-    // console.log("table not found ❌");
   }
 }

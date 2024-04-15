@@ -1,10 +1,3 @@
-export type PropertyTableInnerRow = {
-  name: string;
-  type: string;
-  attribute: string;
-  description: string;
-};
-
 export type SimplePropertyTableRow = {
   name: string;
   type: string;
@@ -18,7 +11,7 @@ export type ComplexPropertyTableRow = {
   type: string;
   attribute: string;
   hasTable: true;
-  description: PropertyTableInnerRow[];
+  description: ComplexPropertyTableRow[];
 };
 
 export type PropertyTableRow = SimplePropertyTableRow | ComplexPropertyTableRow;

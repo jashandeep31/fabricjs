@@ -2,7 +2,7 @@
 
 import fs from "fs";
 import {
-  proccessAndReturnProperty,
+  processAndReturnProperty,
   scrapStoreAndReturnRawData,
 } from "./helpers";
 import * as cheerio from "cheerio";
@@ -21,7 +21,7 @@ export const scrapper = async (url: string) => {
   const propertiesList: Property[] = [];
   properties.each((index: number, element: cheerio.Element) => {
     if (index === 161) {
-      proccessAndReturnProperty(element, url);
+      processAndReturnProperty(element, url);
     }
   });
 };
