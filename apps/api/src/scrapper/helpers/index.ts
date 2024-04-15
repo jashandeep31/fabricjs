@@ -4,6 +4,7 @@ import * as cheerio from "cheerio";
 import path from "path";
 import fs from "fs";
 import { TableDataProcessor } from "./processAndReturnTableData";
+import { Property, PropertyTableRow } from "../scrapper.types";
 // import { processAndReturnTableData } from "./processAndReturnTableData";
 
 // constants
@@ -37,36 +38,53 @@ export async function scrapStoreAndReturnRawData(
   }
 }
 
-export async function processAndReturnProperty(
+export function processAndReturnProperty(
   element: cheerio.Element,
   url: string
-) {
+): Property {
   const $ = cheerio.load(element);
+
   const allAnchorTags = $(element).find("a");
 
-  // getting the title of the property
-  let title: string = "";
-  allAnchorTags.first().each((index, aTag) => {
-    $(aTag).each((index, element) => {
-      $(element).find("span.type-signature").remove();
-      title = $(element).text();
+  const getTitle = (): string => {
+    let title: string = "";
+    allAnchorTags.first().each((index, aTag) => {
+      $(aTag).each((index, element) => {
+        $(element).find("span.type-signature").remove();
+        $(element).find("span.signature").remove();
+        title = $(element).text();
+      });
     });
-  });
-  // getting the description of the property
+    return title;
+  };
+  let title = getTitle();
   const description = $(element).find("div.description").text().trim();
 
   // getting the prev website url for reference (!!   PREV_WEBSITE_URL_BASE is used to make url the dynamic   !!)
   const prevUrl =
     url +
     $(element).find("a:first").attr("href")?.replace(PREV_WEBSITE_URL_BASE, "");
-  console.log(prevUrl);
 
   const table = $(element).find("table").first();
   if (table.length) {
     const processor = new TableDataProcessor(element);
-    const res = processor.processAndReturnTableData();
-    // fs.writeFileSync(ROOT_PATH + "/sample.json", JSON.stringify(res));
+    const res: PropertyTableRow[] = processor.processAndReturnTableData();
+    return {
+      name: title,
+      uniqueId: title,
+      completeUrl: title,
+      prevUrl: prevUrl,
+      description: description,
+      table: res,
+    };
   } else {
-    // direct process the data
+    return {
+      name: title,
+      uniqueId: title,
+      completeUrl: title,
+      prevUrl: prevUrl,
+      description: description,
+      table: [],
+    };
   }
 }

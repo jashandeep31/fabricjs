@@ -1,9 +1,2223 @@
 [
   {
-    "name": "options",
-    "type": "Object",
-    "attribute": "-",
-    "hasTable": false,
-    "description": ""
+    "name": "__corner",
+    "uniqueId": "__corner",
+    "completeUrl": "__corner",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#__corner",
+    "description": "keeps the value of the last hovered corner during mouse move.\n0 is no corner, or 'mt', 'ml', 'mtr' etc..\nIt should be private, but there is no harm in using it as\na read-only property.",
+    "table": []
+  },
+  {
+    "name": "absolutePositioned",
+    "uniqueId": "absolutePositioned",
+    "completeUrl": "absolutePositioned",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#absolutePositioned",
+    "description": "Meaningful ONLY when the object is used as clipPath.\nif true, the clipPath will have its top and left relative to canvas, and will\nnot be influenced by the object transform. This will make the clipPath relative\nto the canvas, but clipping just a particular object.\nWARNING this is beta, this feature may change or be renamed.\nsince 2.4.0",
+    "table": []
+  },
+  {
+    "name": "aCoords",
+    "uniqueId": "aCoords",
+    "completeUrl": "aCoords",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#aCoords",
+    "description": "Describe object's corner position in canvas object absolute coordinates\nproperties are tl,tr,bl,br and describe the four main corner.\neach property is an object with x, y, instance of Fabric.Point.\nThe coordinates depends from this properties: width, height, scaleX, scaleY\nskewX, skewY, angle, strokeWidth, top, left.\nThose coordinates are useful to understand where an object is. They get updated\nwith oCoords but they do not need to be updated when zoom or panning change.\nThe coordinates get updated with @method setCoords.\nYou can calculate them without updating with @method calcACoords();",
+    "table": []
+  },
+  {
+    "name": "angle",
+    "uniqueId": "angle",
+    "completeUrl": "angle",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#angle",
+    "description": "Angle of rotation of an object (in degrees)",
+    "table": []
+  },
+  {
+    "name": "backgroundColor",
+    "uniqueId": "backgroundColor",
+    "completeUrl": "backgroundColor",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#backgroundColor",
+    "description": "Background color of an object.\ntakes css colors https://www.w3.org/TR/css-color-3/",
+    "table": []
+  },
+  {
+    "name": "borderColor",
+    "uniqueId": "borderColor",
+    "completeUrl": "borderColor",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#borderColor",
+    "description": "Color of controlling borders of an object (when it's active)",
+    "table": []
+  },
+  {
+    "name": "borderDashArray",
+    "uniqueId": "borderDashArray",
+    "completeUrl": "borderDashArray",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#borderDashArray",
+    "description": "Array specifying dash pattern of an object's borders (hasBorder must be true)",
+    "table": []
+  },
+  {
+    "name": "borderOpacityWhenMoving",
+    "uniqueId": "borderOpacityWhenMoving",
+    "completeUrl": "borderOpacityWhenMoving",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#borderOpacityWhenMoving",
+    "description": "Opacity of object's controlling borders when object is active and moving",
+    "table": []
+  },
+  {
+    "name": "borderScaleFactor",
+    "uniqueId": "borderScaleFactor",
+    "completeUrl": "borderScaleFactor",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#borderScaleFactor",
+    "description": "Scale factor of object's controlling borders\nbigger number will make a thicker border\nborder is 1, so this is basically a border thickness\nsince there is no way to change the border itself.",
+    "table": []
+  },
+  {
+    "name": "centeredRotation",
+    "uniqueId": "centeredRotation",
+    "completeUrl": "centeredRotation",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#centeredRotation",
+    "description": "When true, this object will use center point as the origin of transformation\nwhen being rotated via the controls.\nBackwards incompatibility note: This property replaces \"centerTransform\" (Boolean).",
+    "table": []
+  },
+  {
+    "name": "centeredScaling",
+    "uniqueId": "centeredScaling",
+    "completeUrl": "centeredScaling",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#centeredScaling",
+    "description": "When true, this object will use center point as the origin of transformation\nwhen being scaled via the controls.\nBackwards incompatibility note: This property replaces \"centerTransform\" (Boolean).",
+    "table": []
+  },
+  {
+    "name": "clipPath",
+    "uniqueId": "clipPath",
+    "completeUrl": "clipPath",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#clipPath",
+    "description": "a fabricObject that, without stroke define a clipping area with their shape. filled in black\nthe clipPath object gets used when the object has rendered, and the context is placed in the center\nof the object cacheCanvas.\nIf you want 0,0 of a clipPath to align with an object center, use clipPath.originX/Y to 'center'",
+    "table": []
+  },
+  {
+    "name": "colorProperties",
+    "uniqueId": "colorProperties",
+    "completeUrl": "colorProperties",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#colorProperties",
+    "description": "List of properties to consider for animating colors.",
+    "table": []
+  },
+  {
+    "name": "controls",
+    "uniqueId": "controls",
+    "completeUrl": "controls",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#controls",
+    "description": "custom controls interface\ncontrols are added by default_controls.js",
+    "table": []
+  },
+  {
+    "name": "cornerColor",
+    "uniqueId": "cornerColor",
+    "completeUrl": "cornerColor",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#cornerColor",
+    "description": "Color of controlling corners of an object (when it's active)",
+    "table": []
+  },
+  {
+    "name": "cornerDashArray",
+    "uniqueId": "cornerDashArray",
+    "completeUrl": "cornerDashArray",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#cornerDashArray",
+    "description": "Array specifying dash pattern of an object's control (hasBorder must be true)",
+    "table": []
+  },
+  {
+    "name": "cornerSize",
+    "uniqueId": "cornerSize",
+    "completeUrl": "cornerSize",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#cornerSize",
+    "description": "Size of object's controlling corners (in pixels)",
+    "table": []
+  },
+  {
+    "name": "cornerStrokeColor",
+    "uniqueId": "cornerStrokeColor",
+    "completeUrl": "cornerStrokeColor",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#cornerStrokeColor",
+    "description": "Color of controlling corners of an object (when it's active and transparentCorners false)",
+    "table": []
+  },
+  {
+    "name": "cornerStyle",
+    "uniqueId": "cornerStyle",
+    "completeUrl": "cornerStyle",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#cornerStyle",
+    "description": "Specify style of control, 'rect' or 'circle'",
+    "table": []
+  },
+  {
+    "name": "dirty",
+    "uniqueId": "dirty",
+    "completeUrl": "dirty",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#dirty",
+    "description": "When set to `true`, object's cache will be rerendered next render call.\nsince 1.7.0",
+    "table": []
+  },
+  {
+    "name": "evented",
+    "uniqueId": "evented",
+    "completeUrl": "evented",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#evented",
+    "description": "When set to `false`, an object can not be a target of events. All events propagate through it. Introduced in v1.3.4",
+    "table": []
+  },
+  {
+    "name": "excludeFromExport",
+    "uniqueId": "excludeFromExport",
+    "completeUrl": "excludeFromExport",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#excludeFromExport",
+    "description": "When `true`, object is not exported in OBJECT/JSON",
+    "table": []
+  },
+  {
+    "name": "fill",
+    "uniqueId": "fill",
+    "completeUrl": "fill",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#fill",
+    "description": "Color of object's fill\ntakes css colors https://www.w3.org/TR/css-color-3/",
+    "table": []
+  },
+  {
+    "name": "fillRule",
+    "uniqueId": "fillRule",
+    "completeUrl": "fillRule",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#fillRule",
+    "description": "Fill rule used to fill an object\naccepted values are nonzero, evenodd\nBackwards incompatibility note: This property was used for setting globalCompositeOperation until v1.4.12 (use `fabric.Object#globalCompositeOperation` instead)",
+    "table": []
+  },
+  {
+    "name": "flipX",
+    "uniqueId": "flipX",
+    "completeUrl": "flipX",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#flipX",
+    "description": "When true, an object is rendered as flipped horizontally",
+    "table": []
+  },
+  {
+    "name": "flipY",
+    "uniqueId": "flipY",
+    "completeUrl": "flipY",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#flipY",
+    "description": "When true, an object is rendered as flipped vertically",
+    "table": []
+  },
+  {
+    "name": "globalCompositeOperation",
+    "uniqueId": "globalCompositeOperation",
+    "completeUrl": "globalCompositeOperation",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#globalCompositeOperation",
+    "description": "Composite rule used for canvas globalCompositeOperation",
+    "table": []
+  },
+  {
+    "name": "hasBorders",
+    "uniqueId": "hasBorders",
+    "completeUrl": "hasBorders",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#hasBorders",
+    "description": "When set to `false`, object's controlling borders are not rendered",
+    "table": []
+  },
+  {
+    "name": "hasControls",
+    "uniqueId": "hasControls",
+    "completeUrl": "hasControls",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#hasControls",
+    "description": "When set to `false`, object's controls are not displayed and can not be used to manipulate object",
+    "table": []
+  },
+  {
+    "name": "height",
+    "uniqueId": "height",
+    "completeUrl": "height",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#height",
+    "description": "Object height",
+    "table": []
+  },
+  {
+    "name": "hoverCursor",
+    "uniqueId": "hoverCursor",
+    "completeUrl": "hoverCursor",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#hoverCursor",
+    "description": "Default cursor value used when hovering over this object on canvas",
+    "table": []
+  },
+  {
+    "name": "includeDefaultValues",
+    "uniqueId": "includeDefaultValues",
+    "completeUrl": "includeDefaultValues",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#includeDefaultValues",
+    "description": "When `false`, default object's values are not included in its serialization",
+    "table": []
+  },
+  {
+    "name": "inverted",
+    "uniqueId": "inverted",
+    "completeUrl": "inverted",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#inverted",
+    "description": "Meaningful ONLY when the object is used as clipPath.\nif true, the clipPath will make the object clip to the outside of the clipPath\nsince 2.4.0",
+    "table": []
+  },
+  {
+    "name": "left",
+    "uniqueId": "left",
+    "completeUrl": "left",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#left",
+    "description": "Left position of an object. Note that by default it's relative to object left. You can change this by setting originX={left/center/right}",
+    "table": []
+  },
+  {
+    "name": "lineCoords",
+    "uniqueId": "lineCoords",
+    "completeUrl": "lineCoords",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#lineCoords",
+    "description": "Describe object's corner position in canvas element coordinates.\nincludes padding. Used of object detection.\nset and refreshed with setCoords.",
+    "table": []
+  },
+  {
+    "name": "lockMovementX",
+    "uniqueId": "lockMovementX",
+    "completeUrl": "lockMovementX",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#lockMovementX",
+    "description": "When `true`, object horizontal movement is locked",
+    "table": []
+  },
+  {
+    "name": "lockMovementY",
+    "uniqueId": "lockMovementY",
+    "completeUrl": "lockMovementY",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#lockMovementY",
+    "description": "When `true`, object vertical movement is locked",
+    "table": []
+  },
+  {
+    "name": "lockRotation",
+    "uniqueId": "lockRotation",
+    "completeUrl": "lockRotation",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#lockRotation",
+    "description": "When `true`, object rotation is locked",
+    "table": []
+  },
+  {
+    "name": "lockScalingFlip",
+    "uniqueId": "lockScalingFlip",
+    "completeUrl": "lockScalingFlip",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#lockScalingFlip",
+    "description": "When `true`, object cannot be flipped by scaling into negative values",
+    "table": []
+  },
+  {
+    "name": "lockScalingX",
+    "uniqueId": "lockScalingX",
+    "completeUrl": "lockScalingX",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#lockScalingX",
+    "description": "When `true`, object horizontal scaling is locked",
+    "table": []
+  },
+  {
+    "name": "lockScalingY",
+    "uniqueId": "lockScalingY",
+    "completeUrl": "lockScalingY",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#lockScalingY",
+    "description": "When `true`, object vertical scaling is locked",
+    "table": []
+  },
+  {
+    "name": "lockSkewingX",
+    "uniqueId": "lockSkewingX",
+    "completeUrl": "lockSkewingX",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#lockSkewingX",
+    "description": "When `true`, object horizontal skewing is locked",
+    "table": []
+  },
+  {
+    "name": "lockSkewingY",
+    "uniqueId": "lockSkewingY",
+    "completeUrl": "lockSkewingY",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#lockSkewingY",
+    "description": "When `true`, object vertical skewing is locked",
+    "table": []
+  },
+  {
+    "name": "matrixCache",
+    "uniqueId": "matrixCache",
+    "completeUrl": "matrixCache",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#matrixCache",
+    "description": "storage for object full transform matrix",
+    "table": []
+  },
+  {
+    "name": "minScaleLimit",
+    "uniqueId": "minScaleLimit",
+    "completeUrl": "minScaleLimit",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#minScaleLimit",
+    "description": "Minimum allowed scale value of an object",
+    "table": []
+  },
+  {
+    "name": "moveCursor",
+    "uniqueId": "moveCursor",
+    "completeUrl": "moveCursor",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#moveCursor",
+    "description": "Default cursor value used when moving this object on canvas",
+    "table": []
+  },
+  {
+    "name": "noScaleCache",
+    "uniqueId": "noScaleCache",
+    "completeUrl": "noScaleCache",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#noScaleCache",
+    "description": "When `true`, cache does not get updated during scaling. The picture will get blocky if scaled\ntoo much and will be redrawn with correct details at the end of scaling.\nthis setting is performance and application dependant.\ndefault to true\nsince 1.7.0",
+    "table": []
+  },
+  {
+    "name": "objectCaching",
+    "uniqueId": "objectCaching",
+    "completeUrl": "objectCaching",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#objectCaching",
+    "description": "When `true`, object is cached on an additional canvas.\nWhen `false`, object is not cached unless necessary ( clipPath )\ndefault to true",
+    "table": []
+  },
+  {
+    "name": "oCoords",
+    "uniqueId": "oCoords",
+    "completeUrl": "oCoords",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#oCoords",
+    "description": "Describe object's corner position in canvas element coordinates.\nproperties are depending on control keys and padding the main controls.\neach property is an object with x, y and corner.\nThe `corner` property contains in a similar manner the 4 points of the\ninteractive area of the corner.\nThe coordinates depends from the controls positionHandler and are used\nto draw and locate controls",
+    "table": []
+  },
+  {
+    "name": "opacity",
+    "uniqueId": "opacity",
+    "completeUrl": "opacity",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#opacity",
+    "description": "Opacity of an object",
+    "table": []
+  },
+  {
+    "name": "originX",
+    "uniqueId": "originX",
+    "completeUrl": "originX",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#originX",
+    "description": "Horizontal origin of transformation of an object (one of \"left\", \"right\", \"center\")\nSee http://jsfiddle.net/1ow02gea/244/ on how originX/originY affect objects in groups",
+    "table": []
+  },
+  {
+    "name": "originY",
+    "uniqueId": "originY",
+    "completeUrl": "originY",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#originY",
+    "description": "Vertical origin of transformation of an object (one of \"top\", \"bottom\", \"center\")\nSee http://jsfiddle.net/1ow02gea/244/ on how originX/originY affect objects in groups",
+    "table": []
+  },
+  {
+    "name": "ownMatrixCache",
+    "uniqueId": "ownMatrixCache",
+    "completeUrl": "ownMatrixCache",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#ownMatrixCache",
+    "description": "storage for object transform matrix",
+    "table": []
+  },
+  {
+    "name": "padding",
+    "uniqueId": "padding",
+    "completeUrl": "padding",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#padding",
+    "description": "Padding between object and its controlling borders (in pixels)",
+    "table": []
+  },
+  {
+    "name": "paintFirst",
+    "uniqueId": "paintFirst",
+    "completeUrl": "paintFirst",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#paintFirst",
+    "description": "Determines if the fill or the stroke is drawn first (one of \"fill\" or \"stroke\")",
+    "table": []
+  },
+  {
+    "name": "perPixelTargetFind",
+    "uniqueId": "perPixelTargetFind",
+    "completeUrl": "perPixelTargetFind",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#perPixelTargetFind",
+    "description": "When set to `true`, objects are \"found\" on canvas on per-pixel basis rather than according to bounding box",
+    "table": []
+  },
+  {
+    "name": "scaleX",
+    "uniqueId": "scaleX",
+    "completeUrl": "scaleX",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#scaleX",
+    "description": "Object scale factor (horizontal)",
+    "table": []
+  },
+  {
+    "name": "scaleY",
+    "uniqueId": "scaleY",
+    "completeUrl": "scaleY",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#scaleY",
+    "description": "Object scale factor (vertical)",
+    "table": []
+  },
+  {
+    "name": "selectable",
+    "uniqueId": "selectable",
+    "completeUrl": "selectable",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#selectable",
+    "description": "When set to `false`, an object can not be selected for modification (using either point-click-based or group-based selection).\nBut events still fire on it.",
+    "table": []
+  },
+  {
+    "name": "selectionBackgroundColor",
+    "uniqueId": "selectionBackgroundColor",
+    "completeUrl": "selectionBackgroundColor",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#selectionBackgroundColor",
+    "description": "Selection Background color of an object. colored layer behind the object when it is active.\ndoes not mix good with globalCompositeOperation methods.",
+    "table": []
+  },
+  {
+    "name": "shadow",
+    "uniqueId": "shadow",
+    "completeUrl": "shadow",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#shadow",
+    "description": "Shadow object representing shadow of this shape",
+    "table": []
+  },
+  {
+    "name": "skewX",
+    "uniqueId": "skewX",
+    "completeUrl": "skewX",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#skewX",
+    "description": "Angle of skew on x axes of an object (in degrees)",
+    "table": []
+  },
+  {
+    "name": "skewY",
+    "uniqueId": "skewY",
+    "completeUrl": "skewY",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#skewY",
+    "description": "Angle of skew on y axes of an object (in degrees)",
+    "table": []
+  },
+  {
+    "name": "statefullCache",
+    "uniqueId": "statefullCache",
+    "completeUrl": "statefullCache",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#statefullCache",
+    "description": "When `true`, object properties are checked for cache invalidation. In some particular\nsituation you may want this to be disabled ( spray brush, very big, groups)\nor if your application does not allow you to modify properties for groups child you want\nto disable it for groups.\ndefault to false\nsince 1.7.0",
+    "table": []
+  },
+  {
+    "name": "stroke",
+    "uniqueId": "stroke",
+    "completeUrl": "stroke",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#stroke",
+    "description": "When defined, an object is rendered via stroke and this property specifies its color\ntakes css colors https://www.w3.org/TR/css-color-3/",
+    "table": []
+  },
+  {
+    "name": "strokeDashArray",
+    "uniqueId": "strokeDashArray",
+    "completeUrl": "strokeDashArray",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#strokeDashArray",
+    "description": "Array specifying dash pattern of an object's stroke (stroke must be defined)",
+    "table": []
+  },
+  {
+    "name": "strokeDashOffset",
+    "uniqueId": "strokeDashOffset",
+    "completeUrl": "strokeDashOffset",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#strokeDashOffset",
+    "description": "Line offset of an object's stroke",
+    "table": []
+  },
+  {
+    "name": "strokeLineCap",
+    "uniqueId": "strokeLineCap",
+    "completeUrl": "strokeLineCap",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#strokeLineCap",
+    "description": "Line endings style of an object's stroke (one of \"butt\", \"round\", \"square\")",
+    "table": []
+  },
+  {
+    "name": "strokeLineJoin",
+    "uniqueId": "strokeLineJoin",
+    "completeUrl": "strokeLineJoin",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#strokeLineJoin",
+    "description": "Corner style of an object's stroke (one of \"bevel\", \"round\", \"miter\")",
+    "table": []
+  },
+  {
+    "name": "strokeMiterLimit",
+    "uniqueId": "strokeMiterLimit",
+    "completeUrl": "strokeMiterLimit",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#strokeMiterLimit",
+    "description": "Maximum miter length (used for strokeLineJoin = \"miter\") of an object's stroke",
+    "table": []
+  },
+  {
+    "name": "strokeUniform",
+    "uniqueId": "strokeUniform",
+    "completeUrl": "strokeUniform",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#strokeUniform",
+    "description": "When `false`, the stoke width will scale with the object.\nWhen `true`, the stroke will always match the exact pixel size entered for stroke width.\nthis Property does not work on Text classes or drawing call that uses strokeText,fillText methods\ndefault to false",
+    "table": []
+  },
+  {
+    "name": "strokeWidth",
+    "uniqueId": "strokeWidth",
+    "completeUrl": "strokeWidth",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#strokeWidth",
+    "description": "Width of a stroke used to render this object",
+    "table": []
+  },
+  {
+    "name": "top",
+    "uniqueId": "top",
+    "completeUrl": "top",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#top",
+    "description": "Top position of an object. Note that by default it's relative to object top. You can change this by setting originY={top/center/bottom}",
+    "table": []
+  },
+  {
+    "name": "touchCornerSize",
+    "uniqueId": "touchCornerSize",
+    "completeUrl": "touchCornerSize",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#touchCornerSize",
+    "description": "Size of object's controlling corners when touch interaction is detected",
+    "table": []
+  },
+  {
+    "name": "transparentCorners",
+    "uniqueId": "transparentCorners",
+    "completeUrl": "transparentCorners",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#transparentCorners",
+    "description": "When true, object's controlling corners are rendered as transparent inside (i.e. stroke instead of fill)",
+    "table": []
+  },
+  {
+    "name": "visible",
+    "uniqueId": "visible",
+    "completeUrl": "visible",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#visible",
+    "description": "When set to `false`, an object is not rendered on canvas",
+    "table": []
+  },
+  {
+    "name": "width",
+    "uniqueId": "width",
+    "completeUrl": "width",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#width",
+    "description": "Object width",
+    "table": []
+  },
+  {
+    "name": "_calcRotateMatrix",
+    "uniqueId": "_calcRotateMatrix",
+    "completeUrl": "_calcRotateMatrix",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#_calcRotateMatrix",
+    "description": "calculate rotation matrix of an object",
+    "table": []
+  },
+  {
+    "name": "_calcTranslateMatrix",
+    "uniqueId": "_calcTranslateMatrix",
+    "completeUrl": "_calcTranslateMatrix",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#_calcTranslateMatrix",
+    "description": "calculate the translation matrix for an object transform",
+    "table": []
+  },
+  {
+    "name": "_drawClipPath",
+    "uniqueId": "_drawClipPath",
+    "completeUrl": "_drawClipPath",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#_drawClipPath",
+    "description": "Prepare clipPath state and cache and draw it on instance's cache",
+    "table": [
+      {
+        "name": "clipPath",
+        "type": "fabric.Object",
+        "attribute": "-",
+        "hasTable": false,
+        "description": ""
+      }
+    ]
+  },
+  {
+    "name": "_getCoords",
+    "uniqueId": "_getCoords",
+    "completeUrl": "_getCoords",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#_getCoords",
+    "description": "return correct set of coordinates for intersection\nthis will return either aCoords or lineCoords.",
+    "table": [
+      {
+        "name": "absolute",
+        "type": "Boolean",
+        "attribute": "-",
+        "hasTable": false,
+        "description": "will return aCoords if true or lineCoords"
+      }
+    ]
+  },
+  {
+    "name": "_limitCacheSize",
+    "uniqueId": "_limitCacheSize",
+    "completeUrl": "_limitCacheSize",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#_limitCacheSize",
+    "description": "Limit the cache dimensions so that X * Y do not cross fabric.perfLimitSizeTotal\nand each side do not cross fabric.cacheSideLimit\nthose numbers are configurable so that you can get as much detail as you want\nmaking bargain with performances.",
+    "table": [
+      {
+        "name": "dims",
+        "type": "Object",
+        "attribute": "-",
+        "hasTable": true,
+        "description": [
+          {
+            "name": "width",
+            "type": "Object",
+            "attribute": "-",
+            "hasTable": false,
+            "description": "width of canvas"
+          },
+          {
+            "name": "height",
+            "type": "Object",
+            "attribute": "-",
+            "hasTable": false,
+            "description": "height of canvas"
+          },
+          {
+            "name": "zoomX",
+            "type": "Object",
+            "attribute": "-",
+            "hasTable": false,
+            "description": "zoomX zoom value to unscale the canvas before drawing cache"
+          },
+          {
+            "name": "zoomY",
+            "type": "Object",
+            "attribute": "-",
+            "hasTable": false,
+            "description": "zoomY zoom value to unscale the canvas before drawing cache"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "_removeCacheCanvas",
+    "uniqueId": "_removeCacheCanvas",
+    "completeUrl": "_removeCacheCanvas",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#_removeCacheCanvas",
+    "description": "Remove cacheCanvas and its dimensions from the objects",
+    "table": []
+  },
+  {
+    "name": "_renderControls",
+    "uniqueId": "_renderControls",
+    "completeUrl": "_renderControls",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#_renderControls",
+    "description": "Renders controls and borders for the object\nthe context here is not transformed",
+    "table": [
+      {
+        "name": "styleOverride",
+        "type": "Object",
+        "attribute": "-",
+        "hasTable": false,
+        "description": "properties to override the object style"
+      }
+    ]
+  },
+  {
+    "name": "_setupCompositeOperation",
+    "uniqueId": "_setupCompositeOperation",
+    "completeUrl": "_setupCompositeOperation",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#_setupCompositeOperation",
+    "description": "Sets canvas globalCompositeOperation for specific object\ncustom composition operation for the particular object can be specified using globalCompositeOperation property",
+    "table": [
+      {
+        "name": "ctx",
+        "type": "CanvasRenderingContext2D",
+        "attribute": "-",
+        "hasTable": false,
+        "description": "Rendering canvas context"
+      }
+    ]
+  },
+  {
+    "name": "adjustPosition",
+    "uniqueId": "adjustPosition",
+    "completeUrl": "adjustPosition",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#adjustPosition",
+    "description": "",
+    "table": [
+      {
+        "name": "to",
+        "type": "String",
+        "attribute": "-",
+        "hasTable": false,
+        "description": "One of 'left', 'center', 'right'"
+      }
+    ]
+  },
+  {
+    "name": "animate",
+    "uniqueId": "animate",
+    "completeUrl": "animate",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#animate",
+    "description": "Animates object's properties",
+    "table": [
+      {
+        "name": "value",
+        "type": "Number\n|\n\nObject",
+        "attribute": "-",
+        "hasTable": false,
+        "description": "Value to animate property to (if string was given first) or options object"
+      }
+    ]
+  },
+  {
+    "name": "bringForward",
+    "uniqueId": "bringForward",
+    "completeUrl": "bringForward",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#bringForward",
+    "description": "Moves an object up in stack of drawn objects",
+    "table": [
+      {
+        "name": "intersecting",
+        "type": "Boolean",
+        "attribute": "-",
+        "hasTable": false,
+        "description": "If `true`, send object in front of next upper intersecting object"
+      }
+    ]
+  },
+  {
+    "name": "bringToFront",
+    "uniqueId": "bringToFront",
+    "completeUrl": "bringToFront",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#bringToFront",
+    "description": "Moves an object to the top of the stack of drawn objects",
+    "table": []
+  },
+  {
+    "name": "calcOwnMatrix",
+    "uniqueId": "calcOwnMatrix",
+    "completeUrl": "calcOwnMatrix",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#calcOwnMatrix",
+    "description": "calculate transform matrix that represents the current transformations from the\nobject's properties, this matrix does not include the group transformation",
+    "table": []
+  },
+  {
+    "name": "calcTransformMatrix",
+    "uniqueId": "calcTransformMatrix",
+    "completeUrl": "calcTransformMatrix",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#calcTransformMatrix",
+    "description": "calculate transform matrix that represents the current transformations from the\nobject's properties.",
+    "table": [
+      {
+        "name": "skipGroup",
+        "type": "Boolean",
+        "attribute": "-",
+        "hasTable": false,
+        "description": "return transform matrix for object not counting parent transformations\nThere are some situation in which this is useful to avoid the fake rotation."
+      }
+    ]
+  },
+  {
+    "name": "center",
+    "uniqueId": "center",
+    "completeUrl": "center",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#center",
+    "description": "Centers object vertically and horizontally on canvas to which is was added last\nYou might need to call `setCoords` on an object after centering, to update controls area.",
+    "table": []
+  },
+  {
+    "name": "centerH",
+    "uniqueId": "centerH",
+    "completeUrl": "centerH",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#centerH",
+    "description": "Centers object horizontally on canvas to which it was added last.\nYou might need to call `setCoords` on an object after centering, to update controls area.",
+    "table": []
+  },
+  {
+    "name": "centerV",
+    "uniqueId": "centerV",
+    "completeUrl": "centerV",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#centerV",
+    "description": "Centers object vertically on canvas to which it was added last.\nYou might need to call `setCoords` on an object after centering, to update controls area.",
+    "table": []
+  },
+  {
+    "name": "clone",
+    "uniqueId": "clone",
+    "completeUrl": "clone",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#clone",
+    "description": "Clones an instance, using a callback method will work for every object.",
+    "table": [
+      {
+        "name": "propertiesToInclude",
+        "type": "Array",
+        "attribute": "-",
+        "hasTable": false,
+        "description": "Any properties that you might want to additionally include in the output"
+      }
+    ]
+  },
+  {
+    "name": "cloneAsImage",
+    "uniqueId": "cloneAsImage",
+    "completeUrl": "cloneAsImage",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#cloneAsImage",
+    "description": "Creates an instance of fabric.Image out of an object\nmakes use of toCanvasElement.\nOnce this method was based on toDataUrl and loadImage, so it also had a quality\nand format option. toCanvasElement is faster and produce no loss of quality.\nIf you need to get a real Jpeg or Png from an object, using toDataURL is the right way to do it.\ntoCanvasElement and then toBlob from the obtained canvas is also a good option.\nThis method is sync now, but still support the callback because we did not want to break.\nWhen fabricJS 5.0 will be planned, this will probably be changed to not have a callback.",
+    "table": [
+      {
+        "name": "options",
+        "type": "Object",
+        "attribute": "-",
+        "hasTable": true,
+        "description": [
+          {
+            "name": "multiplier",
+            "type": "Number",
+            "attribute": "-",
+            "hasTable": false,
+            "description": "Multiplier to scale by"
+          },
+          {
+            "name": "left",
+            "type": "Number",
+            "attribute": "-",
+            "hasTable": false,
+            "description": "Cropping left offset. Introduced in v1.2.14"
+          },
+          {
+            "name": "top",
+            "type": "Number",
+            "attribute": "-",
+            "hasTable": false,
+            "description": "Cropping top offset. Introduced in v1.2.14"
+          },
+          {
+            "name": "width",
+            "type": "Number",
+            "attribute": "-",
+            "hasTable": false,
+            "description": "Cropping width. Introduced in v1.2.14"
+          },
+          {
+            "name": "height",
+            "type": "Number",
+            "attribute": "-",
+            "hasTable": false,
+            "description": "Cropping height. Introduced in v1.2.14"
+          },
+          {
+            "name": "enableRetinaScaling",
+            "type": "Boolean",
+            "attribute": "-",
+            "hasTable": false,
+            "description": "Enable retina scaling for clone image. Introduce in 1.6.4"
+          },
+          {
+            "name": "withoutTransform",
+            "type": "Boolean",
+            "attribute": "-",
+            "hasTable": false,
+            "description": "Remove current object transform ( no scale , no angle, no flip, no skew ). Introduced in 2.3.4"
+          },
+          {
+            "name": "withoutShadow",
+            "type": "Boolean",
+            "attribute": "-",
+            "hasTable": false,
+            "description": "Remove current object shadow. Introduced in 2.4.2"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "complexity",
+    "uniqueId": "complexity",
+    "completeUrl": "complexity",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#complexity",
+    "description": "Returns complexity of an instance",
+    "table": []
+  },
+  {
+    "name": "containsPoint",
+    "uniqueId": "containsPoint",
+    "completeUrl": "containsPoint",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#containsPoint",
+    "description": "Checks if point is inside the object",
+    "table": [
+      {
+        "name": "calculate",
+        "type": "Boolean",
+        "attribute": "-",
+        "hasTable": false,
+        "description": "use coordinates of current position instead of .oCoords"
+      }
+    ]
+  },
+  {
+    "name": "dispose",
+    "uniqueId": "dispose",
+    "completeUrl": "dispose",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#dispose",
+    "description": "cancel instance's running animations",
+    "table": []
+  },
+  {
+    "name": "drawBorders",
+    "uniqueId": "drawBorders",
+    "completeUrl": "drawBorders",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#drawBorders",
+    "description": "Draws borders of an object's bounding box.\nRequires public properties: width, height\nRequires public options: padding, borderColor",
+    "table": [
+      {
+        "name": "styleOverride",
+        "type": "Object",
+        "attribute": "-",
+        "hasTable": false,
+        "description": "object to override the object style"
+      }
+    ]
+  },
+  {
+    "name": "drawBordersInGroup",
+    "uniqueId": "drawBordersInGroup",
+    "completeUrl": "drawBordersInGroup",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#drawBordersInGroup",
+    "description": "Draws borders of an object's bounding box when it is inside a group.\nRequires public properties: width, height\nRequires public options: padding, borderColor",
+    "table": [
+      {
+        "name": "styleOverride",
+        "type": "Object",
+        "attribute": "-",
+        "hasTable": false,
+        "description": "object to override the object style"
+      }
+    ]
+  },
+  {
+    "name": "drawCacheOnCanvas",
+    "uniqueId": "drawCacheOnCanvas",
+    "completeUrl": "drawCacheOnCanvas",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#drawCacheOnCanvas",
+    "description": "Paint the cached copy of the object on the target context.",
+    "table": [
+      {
+        "name": "ctx",
+        "type": "CanvasRenderingContext2D",
+        "attribute": "-",
+        "hasTable": false,
+        "description": "Context to render on"
+      }
+    ]
+  },
+  {
+    "name": "drawClipPathOnCache",
+    "uniqueId": "drawClipPathOnCache",
+    "completeUrl": "drawClipPathOnCache",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#drawClipPathOnCache",
+    "description": "Execute the drawing operation for an object clipPath",
+    "table": [
+      {
+        "name": "clipPath",
+        "type": "fabric.Object",
+        "attribute": "-",
+        "hasTable": false,
+        "description": ""
+      }
+    ]
+  },
+  {
+    "name": "drawControls",
+    "uniqueId": "drawControls",
+    "completeUrl": "drawControls",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#drawControls",
+    "description": "Draws corners of an object's bounding box.\nRequires public properties: width, height\nRequires public options: cornerSize, padding",
+    "table": [
+      {
+        "name": "styleOverride",
+        "type": "Object",
+        "attribute": "-",
+        "hasTable": false,
+        "description": "object to override the object style"
+      }
+    ]
+  },
+  {
+    "name": "drawObject",
+    "uniqueId": "drawObject",
+    "completeUrl": "drawObject",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#drawObject",
+    "description": "Execute the drawing operation for an object on a specified context",
+    "table": [
+      {
+        "name": "ctx",
+        "type": "CanvasRenderingContext2D",
+        "attribute": "-",
+        "hasTable": false,
+        "description": "Context to render on"
+      }
+    ]
+  },
+  {
+    "name": "drawSelectionBackground",
+    "uniqueId": "drawSelectionBackground",
+    "completeUrl": "drawSelectionBackground",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#drawSelectionBackground",
+    "description": "Draws a colored layer behind the object, inside its selection borders.\nRequires public options: padding, selectionBackgroundColor\nthis function is called when the context is transformed\nhas checks to be skipped when the object is on a staticCanvas",
+    "table": [
+      {
+        "name": "ctx",
+        "type": "CanvasRenderingContext2D",
+        "attribute": "-",
+        "hasTable": false,
+        "description": "Context to draw on"
+      }
+    ]
+  },
+  {
+    "name": "forEachControl",
+    "uniqueId": "forEachControl",
+    "completeUrl": "forEachControl",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#forEachControl",
+    "description": "Calls a function for each control. The function gets called,\nwith the control, the object that is calling the iterator and the control's key",
+    "table": [
+      {
+        "name": "fn",
+        "type": "function",
+        "attribute": "-",
+        "hasTable": false,
+        "description": "function to iterate over the controls over"
+      }
+    ]
+  },
+  {
+    "name": "fxStraighten",
+    "uniqueId": "fxStraighten",
+    "completeUrl": "fxStraighten",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#fxStraighten",
+    "description": "Same as fabric.Object.prototype.straighten but with animation",
+    "table": [
+      {
+        "name": "callbacks",
+        "type": "Object",
+        "attribute": "-",
+        "hasTable": true,
+        "description": [
+          {
+            "name": "onComplete",
+            "type": "function",
+            "attribute": "-",
+            "hasTable": false,
+            "description": "Invoked on completion"
+          },
+          {
+            "name": "onChange",
+            "type": "function",
+            "attribute": "-",
+            "hasTable": false,
+            "description": "Invoked on every step of animation"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "getBoundingRect",
+    "uniqueId": "getBoundingRect",
+    "completeUrl": "getBoundingRect",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#getBoundingRect",
+    "description": "Returns coordinates of object's bounding rectangle (left, top, width, height)\nthe box is intended as aligned to axis of canvas.",
+    "table": [
+      {
+        "name": "calculate",
+        "type": "Boolean",
+        "attribute": "-",
+        "hasTable": false,
+        "description": "use coordinates of current position instead of .oCoords / .aCoords"
+      }
+    ]
+  },
+  {
+    "name": "getCenterPoint",
+    "uniqueId": "getCenterPoint",
+    "completeUrl": "getCenterPoint",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#getCenterPoint",
+    "description": "Returns the real center coordinates of the object",
+    "table": []
+  },
+  {
+    "name": "getCoords",
+    "uniqueId": "getCoords",
+    "completeUrl": "getCoords",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#getCoords",
+    "description": "return correct set of coordinates for intersection\nthis will return either aCoords or lineCoords.\nThe coords are returned in an array.",
+    "table": []
+  },
+  {
+    "name": "getLocalPointer",
+    "uniqueId": "getLocalPointer",
+    "completeUrl": "getLocalPointer",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#getLocalPointer",
+    "description": "Returns coordinates of a pointer relative to an object",
+    "table": [
+      {
+        "name": "pointer",
+        "type": "Object",
+        "attribute": "-",
+        "hasTable": false,
+        "description": "Pointer to operate upon (instead of event)"
+      }
+    ]
+  },
+  {
+    "name": "getObjectOpacity",
+    "uniqueId": "getObjectOpacity",
+    "completeUrl": "getObjectOpacity",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#getObjectOpacity",
+    "description": "Return the object opacity counting also the group property",
+    "table": []
+  },
+  {
+    "name": "getObjectScaling",
+    "uniqueId": "getObjectScaling",
+    "completeUrl": "getObjectScaling",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#getObjectScaling",
+    "description": "Return the object scale factor counting also the group scaling",
+    "table": []
+  },
+  {
+    "name": "getPointByOrigin",
+    "uniqueId": "getPointByOrigin",
+    "completeUrl": "getPointByOrigin",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#getPointByOrigin",
+    "description": "Returns the coordinates of the object as if it has a different origin",
+    "table": [
+      {
+        "name": "originY",
+        "type": "String",
+        "attribute": "-",
+        "hasTable": false,
+        "description": "Vertical origin: 'top', 'center' or 'bottom'"
+      }
+    ]
+  },
+  {
+    "name": "getScaledHeight",
+    "uniqueId": "getScaledHeight",
+    "completeUrl": "getScaledHeight",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#getScaledHeight",
+    "description": "Returns height of an object bounding box counting transformations\nbefore 2.0 it was named getHeight();",
+    "table": []
+  },
+  {
+    "name": "getScaledWidth",
+    "uniqueId": "getScaledWidth",
+    "completeUrl": "getScaledWidth",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#getScaledWidth",
+    "description": "Returns width of an object's bounding box counting transformations\nbefore 2.0 it was named getWidth();",
+    "table": []
+  },
+  {
+    "name": "getSvgCommons",
+    "uniqueId": "getSvgCommons",
+    "completeUrl": "getSvgCommons",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#getSvgCommons",
+    "description": "Returns id attribute for svg output",
+    "table": []
+  },
+  {
+    "name": "getSvgFilter",
+    "uniqueId": "getSvgFilter",
+    "completeUrl": "getSvgFilter",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#getSvgFilter",
+    "description": "Returns filter for svg shadow",
+    "table": []
+  },
+  {
+    "name": "getSvgSpanStyles",
+    "uniqueId": "getSvgSpanStyles",
+    "completeUrl": "getSvgSpanStyles",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#getSvgSpanStyles",
+    "description": "Returns styles-string for svg-export",
+    "table": [
+      {
+        "name": "useWhiteSpace",
+        "type": "Boolean",
+        "attribute": "-",
+        "hasTable": false,
+        "description": "a boolean to include an additional attribute in the style."
+      }
+    ]
+  },
+  {
+    "name": "getSvgStyles",
+    "uniqueId": "getSvgStyles",
+    "completeUrl": "getSvgStyles",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#getSvgStyles",
+    "description": "Returns styles-string for svg-export",
+    "table": [
+      {
+        "name": "skipShadow",
+        "type": "Boolean",
+        "attribute": "-",
+        "hasTable": false,
+        "description": "a boolean to skip shadow filter output"
+      }
+    ]
+  },
+  {
+    "name": "getSvgTextDecoration",
+    "uniqueId": "getSvgTextDecoration",
+    "completeUrl": "getSvgTextDecoration",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#getSvgTextDecoration",
+    "description": "Returns text-decoration property for svg-export",
+    "table": [
+      {
+        "name": "style",
+        "type": "Object",
+        "attribute": "-",
+        "hasTable": false,
+        "description": "the object from which to retrieve style properties"
+      }
+    ]
+  },
+  {
+    "name": "getSvgTransform",
+    "uniqueId": "getSvgTransform",
+    "completeUrl": "getSvgTransform",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#getSvgTransform",
+    "description": "Returns transform-string for svg-export",
+    "table": [
+      {
+        "name": "use",
+        "type": "Boolean",
+        "attribute": "-",
+        "hasTable": false,
+        "description": "the full transform or the single object one."
+      }
+    ]
+  },
+  {
+    "name": "getTotalObjectScaling",
+    "uniqueId": "getTotalObjectScaling",
+    "completeUrl": "getTotalObjectScaling",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#getTotalObjectScaling",
+    "description": "Return the object scale factor counting also the group scaling, zoom and retina",
+    "table": []
+  },
+  {
+    "name": "getViewportTransform",
+    "uniqueId": "getViewportTransform",
+    "completeUrl": "getViewportTransform",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#getViewportTransform",
+    "description": "Retrieves viewportTransform from Object's canvas if possible",
+    "table": []
+  },
+  {
+    "name": "hasFill",
+    "uniqueId": "hasFill",
+    "completeUrl": "hasFill",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#hasFill",
+    "description": "return true if the object will draw a fill\nDoes not consider text styles. This is just a shortcut used at rendering time\nWe want it to be an approximation and be fast.\nwrote to avoid extra caching, it has to return true when fill happens,\ncan guess when it will not happen at 100% chance, does not matter if it misses\nsome use case where the fill is invisible.",
+    "table": []
+  },
+  {
+    "name": "hasStateChanged",
+    "uniqueId": "hasStateChanged",
+    "completeUrl": "hasStateChanged",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#hasStateChanged",
+    "description": "Returns true if object state (one of its state properties) was changed",
+    "table": [
+      {
+        "name": "propertySet",
+        "type": "String",
+        "attribute": "-",
+        "hasTable": false,
+        "description": "optional name for the set of property we want to save"
+      }
+    ]
+  },
+  {
+    "name": "hasStroke",
+    "uniqueId": "hasStroke",
+    "completeUrl": "hasStroke",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#hasStroke",
+    "description": "return true if the object will draw a stroke\nDoes not consider text styles. This is just a shortcut used at rendering time\nWe want it to be an approximation and be fast.\nwrote to avoid extra caching, it has to return true when stroke happens,\ncan guess when it will not happen at 100% chance, does not matter if it misses\nsome use case where the stroke is invisible.",
+    "table": []
+  },
+  {
+    "name": "intersectsWithObject",
+    "uniqueId": "intersectsWithObject",
+    "completeUrl": "intersectsWithObject",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#intersectsWithObject",
+    "description": "Checks if object intersects with another object",
+    "table": [
+      {
+        "name": "calculate",
+        "type": "Boolean",
+        "attribute": "-",
+        "hasTable": false,
+        "description": "use coordinates of current position instead of .oCoords"
+      }
+    ]
+  },
+  {
+    "name": "intersectsWithRect",
+    "uniqueId": "intersectsWithRect",
+    "completeUrl": "intersectsWithRect",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#intersectsWithRect",
+    "description": "Checks if object intersects with an area formed by 2 points",
+    "table": [
+      {
+        "name": "calculate",
+        "type": "Boolean",
+        "attribute": "-",
+        "hasTable": false,
+        "description": "use coordinates of current position instead of .oCoords"
+      }
+    ]
+  },
+  {
+    "name": "isCacheDirty",
+    "uniqueId": "isCacheDirty",
+    "completeUrl": "isCacheDirty",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#isCacheDirty",
+    "description": "Check if cache is dirty",
+    "table": [
+      {
+        "name": "skipCanvas",
+        "type": "Boolean",
+        "attribute": "-",
+        "hasTable": false,
+        "description": "skip canvas checks because this object is painted\non parent canvas."
+      }
+    ]
+  },
+  {
+    "name": "isContainedWithinObject",
+    "uniqueId": "isContainedWithinObject",
+    "completeUrl": "isContainedWithinObject",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#isContainedWithinObject",
+    "description": "Checks if object is fully contained within area of another object",
+    "table": [
+      {
+        "name": "calculate",
+        "type": "Boolean",
+        "attribute": "-",
+        "hasTable": false,
+        "description": "use coordinates of current position instead of .oCoords"
+      }
+    ]
+  },
+  {
+    "name": "isContainedWithinRect",
+    "uniqueId": "isContainedWithinRect",
+    "completeUrl": "isContainedWithinRect",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#isContainedWithinRect",
+    "description": "Checks if object is fully contained within area formed by 2 points",
+    "table": [
+      {
+        "name": "calculate",
+        "type": "Boolean",
+        "attribute": "-",
+        "hasTable": false,
+        "description": "use coordinates of current position instead of .oCoords"
+      }
+    ]
+  },
+  {
+    "name": "isControlVisible",
+    "uniqueId": "isControlVisible",
+    "completeUrl": "isControlVisible",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#isControlVisible",
+    "description": "Returns true if the specified control is visible, false otherwise.",
+    "table": [
+      {
+        "name": "controlKey",
+        "type": "String",
+        "attribute": "-",
+        "hasTable": false,
+        "description": "The key of the control. Possible values are 'tl', 'tr', 'br', 'bl', 'ml', 'mt', 'mr', 'mb', 'mtr'."
+      }
+    ]
+  },
+  {
+    "name": "isOnScreen",
+    "uniqueId": "isOnScreen",
+    "completeUrl": "isOnScreen",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#isOnScreen",
+    "description": "Checks if object is contained within the canvas with current viewportTransform\nthe check is done stopping at first point that appears on screen",
+    "table": [
+      {
+        "name": "calculate",
+        "type": "Boolean",
+        "attribute": "-",
+        "hasTable": false,
+        "description": "use coordinates of current position instead of .aCoords"
+      }
+    ]
+  },
+  {
+    "name": "isPartiallyOnScreen",
+    "uniqueId": "isPartiallyOnScreen",
+    "completeUrl": "isPartiallyOnScreen",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#isPartiallyOnScreen",
+    "description": "Checks if object is partially contained within the canvas with current viewportTransform",
+    "table": [
+      {
+        "name": "calculate",
+        "type": "Boolean",
+        "attribute": "-",
+        "hasTable": false,
+        "description": "use coordinates of current position instead of .oCoords"
+      }
+    ]
+  },
+  {
+    "name": "isType",
+    "uniqueId": "isType",
+    "completeUrl": "isType",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#isType",
+    "description": "Returns true if specified type is identical to the type of an instance",
+    "table": [
+      {
+        "name": "type",
+        "type": "String",
+        "attribute": "-",
+        "hasTable": false,
+        "description": "Type to check against"
+      }
+    ]
+  },
+  {
+    "name": "moveTo",
+    "uniqueId": "moveTo",
+    "completeUrl": "moveTo",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#moveTo",
+    "description": "Moves an object to specified level in stack of drawn objects",
+    "table": [
+      {
+        "name": "index",
+        "type": "Number",
+        "attribute": "-",
+        "hasTable": false,
+        "description": "New position of object"
+      }
+    ]
+  },
+  {
+    "name": "needsItsOwnCache",
+    "uniqueId": "needsItsOwnCache",
+    "completeUrl": "needsItsOwnCache",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#needsItsOwnCache",
+    "description": "When set to `true`, force the object to have its own cache, even if it is inside a group\nit may be needed when your object behave in a particular way on the cache and always needs\nits own isolated canvas to render correctly.\nCreated to be overridden\nsince 1.7.12",
+    "table": []
+  },
+  {
+    "name": "onDeselect",
+    "uniqueId": "onDeselect",
+    "completeUrl": "onDeselect",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#onDeselect",
+    "description": "This callback function is called every time _discardActiveObject or _setActiveObject\ntry to to deselect this object. If the function returns true, the process is cancelled",
+    "table": [
+      {
+        "name": "options",
+        "type": "Object",
+        "attribute": "-",
+        "hasTable": true,
+        "description": [
+          {
+            "name": "e",
+            "type": "Event",
+            "attribute": "-",
+            "hasTable": false,
+            "description": "event if the process is generated by an event"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "onSelect",
+    "uniqueId": "onSelect",
+    "completeUrl": "onSelect",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#onSelect",
+    "description": "This callback function is called every time _discardActiveObject or _setActiveObject\ntry to to select this object. If the function returns true, the process is cancelled",
+    "table": [
+      {
+        "name": "options",
+        "type": "Object",
+        "attribute": "-",
+        "hasTable": true,
+        "description": [
+          {
+            "name": "e",
+            "type": "Event",
+            "attribute": "-",
+            "hasTable": false,
+            "description": "event if the process is generated by an event"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "render",
+    "uniqueId": "render",
+    "completeUrl": "render",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#render",
+    "description": "Renders an object on a specified context",
+    "table": [
+      {
+        "name": "ctx",
+        "type": "CanvasRenderingContext2D",
+        "attribute": "-",
+        "hasTable": false,
+        "description": "Context to render on"
+      }
+    ]
+  },
+  {
+    "name": "rotate",
+    "uniqueId": "rotate",
+    "completeUrl": "rotate",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#rotate",
+    "description": "Sets \"angle\" of an instance with centered rotation",
+    "table": [
+      {
+        "name": "angle",
+        "type": "Number",
+        "attribute": "-",
+        "hasTable": false,
+        "description": "Angle value (in degrees)"
+      }
+    ]
+  },
+  {
+    "name": "saveState",
+    "uniqueId": "saveState",
+    "completeUrl": "saveState",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#saveState",
+    "description": "Saves state of an object",
+    "table": [
+      {
+        "name": "options",
+        "type": "Object",
+        "attribute": "-",
+        "hasTable": false,
+        "description": "Object with additional `stateProperties` array to include when saving state"
+      }
+    ]
+  },
+  {
+    "name": "scale",
+    "uniqueId": "scale",
+    "completeUrl": "scale",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#scale",
+    "description": "Scales an object (equally by x and y)",
+    "table": [
+      {
+        "name": "value",
+        "type": "Number",
+        "attribute": "-",
+        "hasTable": false,
+        "description": "Scale factor"
+      }
+    ]
+  },
+  {
+    "name": "scaleToHeight",
+    "uniqueId": "scaleToHeight",
+    "completeUrl": "scaleToHeight",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#scaleToHeight",
+    "description": "Scales an object to a given height, with respect to bounding box (scaling by x/y equally)",
+    "table": [
+      {
+        "name": "absolute",
+        "type": "Boolean",
+        "attribute": "-",
+        "hasTable": false,
+        "description": "ignore viewport"
+      }
+    ]
+  },
+  {
+    "name": "scaleToWidth",
+    "uniqueId": "scaleToWidth",
+    "completeUrl": "scaleToWidth",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#scaleToWidth",
+    "description": "Scales an object to a given width, with respect to bounding box (scaling by x/y equally)",
+    "table": [
+      {
+        "name": "absolute",
+        "type": "Boolean",
+        "attribute": "-",
+        "hasTable": false,
+        "description": "ignore viewport"
+      }
+    ]
+  },
+  {
+    "name": "sendBackwards",
+    "uniqueId": "sendBackwards",
+    "completeUrl": "sendBackwards",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#sendBackwards",
+    "description": "Moves an object down in stack of drawn objects",
+    "table": [
+      {
+        "name": "intersecting",
+        "type": "Boolean",
+        "attribute": "-",
+        "hasTable": false,
+        "description": "If `true`, send object behind next lower intersecting object"
+      }
+    ]
+  },
+  {
+    "name": "sendToBack",
+    "uniqueId": "sendToBack",
+    "completeUrl": "sendToBack",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#sendToBack",
+    "description": "Moves an object to the bottom of the stack of drawn objects",
+    "table": []
+  },
+  {
+    "name": "setControlsVisibility",
+    "uniqueId": "setControlsVisibility",
+    "completeUrl": "setControlsVisibility",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#setControlsVisibility",
+    "description": "Sets the visibility state of object controls.",
+    "table": [
+      {
+        "name": "options",
+        "type": "Object",
+        "attribute": "-",
+        "hasTable": true,
+        "description": [
+          {
+            "name": "bl",
+            "type": "Boolean",
+            "attribute": "-",
+            "hasTable": false,
+            "description": "true to enable the bottom-left control, false to disable it"
+          },
+          {
+            "name": "br",
+            "type": "Boolean",
+            "attribute": "-",
+            "hasTable": false,
+            "description": "true to enable the bottom-right control, false to disable it"
+          },
+          {
+            "name": "mb",
+            "type": "Boolean",
+            "attribute": "-",
+            "hasTable": false,
+            "description": "true to enable the middle-bottom control, false to disable it"
+          },
+          {
+            "name": "ml",
+            "type": "Boolean",
+            "attribute": "-",
+            "hasTable": false,
+            "description": "true to enable the middle-left control, false to disable it"
+          },
+          {
+            "name": "mr",
+            "type": "Boolean",
+            "attribute": "-",
+            "hasTable": false,
+            "description": "true to enable the middle-right control, false to disable it"
+          },
+          {
+            "name": "mt",
+            "type": "Boolean",
+            "attribute": "-",
+            "hasTable": false,
+            "description": "true to enable the middle-top control, false to disable it"
+          },
+          {
+            "name": "tl",
+            "type": "Boolean",
+            "attribute": "-",
+            "hasTable": false,
+            "description": "true to enable the top-left control, false to disable it"
+          },
+          {
+            "name": "tr",
+            "type": "Boolean",
+            "attribute": "-",
+            "hasTable": false,
+            "description": "true to enable the top-right control, false to disable it"
+          },
+          {
+            "name": "mtr",
+            "type": "Boolean",
+            "attribute": "-",
+            "hasTable": false,
+            "description": "true to enable the middle-top-rotate control, false to disable it"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "setControlVisible",
+    "uniqueId": "setControlVisible",
+    "completeUrl": "setControlVisible",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#setControlVisible",
+    "description": "Sets the visibility of the specified control.",
+    "table": [
+      {
+        "name": "visible",
+        "type": "Boolean",
+        "attribute": "-",
+        "hasTable": false,
+        "description": "true to set the specified control visible, false otherwise"
+      }
+    ]
+  },
+  {
+    "name": "setCoords",
+    "uniqueId": "setCoords",
+    "completeUrl": "setCoords",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#setCoords",
+    "description": "Sets corner and controls position coordinates based on current angle, width and height, left and top.\noCoords are used to find the corners\naCoords are used to quickly find an object on the canvas\nlineCoords are used to quickly find object during pointer events.\nSee https://github.com/fabricjs/fabric.js/wiki/When-to-call-setCoords and http://fabricjs.com/fabric-gotchas",
+    "table": [
+      {
+        "name": "skipCorners",
+        "type": "Boolean",
+        "attribute": "-",
+        "hasTable": false,
+        "description": "skip calculation of oCoords."
+      }
+    ]
+  },
+  {
+    "name": "setOnGroup",
+    "uniqueId": "setOnGroup",
+    "completeUrl": "setOnGroup",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#setOnGroup",
+    "description": "This callback function is called by the parent group of an object every\ntime a non-delegated property changes on the group. It is passed the key\nand value as parameters. Not adding in this function's signature to avoid\nTravis build error about unused variables.",
+    "table": []
+  },
+  {
+    "name": "setOptions",
+    "uniqueId": "setOptions",
+    "completeUrl": "setOptions",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#setOptions",
+    "description": "Sets object's properties from options",
+    "table": [
+      {
+        "name": "options",
+        "type": "Object",
+        "attribute": "-",
+        "hasTable": false,
+        "description": "Options object"
+      }
+    ]
+  },
+  {
+    "name": "setPositionByOrigin",
+    "uniqueId": "setPositionByOrigin",
+    "completeUrl": "setPositionByOrigin",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#setPositionByOrigin",
+    "description": "Sets the position of the object taking into consideration the object's origin",
+    "table": [
+      {
+        "name": "originY",
+        "type": "String",
+        "attribute": "-",
+        "hasTable": false,
+        "description": "Vertical origin: 'top', 'center' or 'bottom'"
+      }
+    ]
+  },
+  {
+    "name": "setupState",
+    "uniqueId": "setupState",
+    "completeUrl": "setupState",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#setupState",
+    "description": "Setups state of an object",
+    "table": [
+      {
+        "name": "options",
+        "type": "Object",
+        "attribute": "-",
+        "hasTable": false,
+        "description": "Object with additional `stateProperties` array to include when saving state"
+      }
+    ]
+  },
+  {
+    "name": "shouldCache",
+    "uniqueId": "shouldCache",
+    "completeUrl": "shouldCache",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#shouldCache",
+    "description": "Decide if the object should cache or not. Create its own cache level\nobjectCaching is a global flag, wins over everything\nneedsItsOwnCache should be used when the object drawing method requires\na cache step. None of the fabric classes requires it.\nGenerally you do not cache objects in groups because the group outside is cached.\nRead as: cache if is needed, or if the feature is enabled but we are not already caching.",
+    "table": []
+  },
+  {
+    "name": "straighten",
+    "uniqueId": "straighten",
+    "completeUrl": "straighten",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#straighten",
+    "description": "Straightens an object (rotating it from current angle to one of 0, 90, 180, 270, etc. depending on which is closer)",
+    "table": []
+  },
+  {
+    "name": "toCanvasElement",
+    "uniqueId": "toCanvasElement",
+    "completeUrl": "toCanvasElement",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#toCanvasElement",
+    "description": "Converts an object into a HTMLCanvas element",
+    "table": [
+      {
+        "name": "options",
+        "type": "Object",
+        "attribute": "-",
+        "hasTable": true,
+        "description": [
+          {
+            "name": "multiplier",
+            "type": "Number",
+            "attribute": "-",
+            "hasTable": false,
+            "description": "Multiplier to scale by"
+          },
+          {
+            "name": "left",
+            "type": "Number",
+            "attribute": "-",
+            "hasTable": false,
+            "description": "Cropping left offset. Introduced in v1.2.14"
+          },
+          {
+            "name": "top",
+            "type": "Number",
+            "attribute": "-",
+            "hasTable": false,
+            "description": "Cropping top offset. Introduced in v1.2.14"
+          },
+          {
+            "name": "width",
+            "type": "Number",
+            "attribute": "-",
+            "hasTable": false,
+            "description": "Cropping width. Introduced in v1.2.14"
+          },
+          {
+            "name": "height",
+            "type": "Number",
+            "attribute": "-",
+            "hasTable": false,
+            "description": "Cropping height. Introduced in v1.2.14"
+          },
+          {
+            "name": "enableRetinaScaling",
+            "type": "Boolean",
+            "attribute": "-",
+            "hasTable": false,
+            "description": "Enable retina scaling for clone image. Introduce in 1.6.4"
+          },
+          {
+            "name": "withoutTransform",
+            "type": "Boolean",
+            "attribute": "-",
+            "hasTable": false,
+            "description": "Remove current object transform ( no scale , no angle, no flip, no skew ). Introduced in 2.3.4"
+          },
+          {
+            "name": "withoutShadow",
+            "type": "Boolean",
+            "attribute": "-",
+            "hasTable": false,
+            "description": "Remove current object shadow. Introduced in 2.4.2"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "toClipPathSVG",
+    "uniqueId": "toClipPathSVG",
+    "completeUrl": "toClipPathSVG",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#toClipPathSVG",
+    "description": "Returns svg clipPath representation of an instance",
+    "table": [
+      {
+        "name": "reviver",
+        "type": "function",
+        "attribute": "-",
+        "hasTable": false,
+        "description": "Method for further parsing of svg representation."
+      }
+    ]
+  },
+  {
+    "name": "toDatalessObject",
+    "uniqueId": "toDatalessObject",
+    "completeUrl": "toDatalessObject",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#toDatalessObject",
+    "description": "Returns (dataless) object representation of an instance",
+    "table": [
+      {
+        "name": "propertiesToInclude",
+        "type": "Array",
+        "attribute": "-",
+        "hasTable": false,
+        "description": "Any properties that you might want to additionally include in the output"
+      }
+    ]
+  },
+  {
+    "name": "toDataURL",
+    "uniqueId": "toDataURL",
+    "completeUrl": "toDataURL",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#toDataURL",
+    "description": "Converts an object into a data-url-like string",
+    "table": [
+      {
+        "name": "options",
+        "type": "Object",
+        "attribute": "-",
+        "hasTable": true,
+        "description": [
+          {
+            "name": "format",
+            "type": "String",
+            "attribute": "-",
+            "hasTable": false,
+            "description": "The format of the output image. Either \"jpeg\" or \"png\""
+          },
+          {
+            "name": "quality",
+            "type": "Number",
+            "attribute": "-",
+            "hasTable": false,
+            "description": "Quality level (0..1). Only used for jpeg."
+          },
+          {
+            "name": "multiplier",
+            "type": "Number",
+            "attribute": "-",
+            "hasTable": false,
+            "description": "Multiplier to scale by"
+          },
+          {
+            "name": "left",
+            "type": "Number",
+            "attribute": "-",
+            "hasTable": false,
+            "description": "Cropping left offset. Introduced in v1.2.14"
+          },
+          {
+            "name": "top",
+            "type": "Number",
+            "attribute": "-",
+            "hasTable": false,
+            "description": "Cropping top offset. Introduced in v1.2.14"
+          },
+          {
+            "name": "width",
+            "type": "Number",
+            "attribute": "-",
+            "hasTable": false,
+            "description": "Cropping width. Introduced in v1.2.14"
+          },
+          {
+            "name": "height",
+            "type": "Number",
+            "attribute": "-",
+            "hasTable": false,
+            "description": "Cropping height. Introduced in v1.2.14"
+          },
+          {
+            "name": "enableRetinaScaling",
+            "type": "Boolean",
+            "attribute": "-",
+            "hasTable": false,
+            "description": "Enable retina scaling for clone image. Introduce in 1.6.4"
+          },
+          {
+            "name": "withoutTransform",
+            "type": "Boolean",
+            "attribute": "-",
+            "hasTable": false,
+            "description": "Remove current object transform ( no scale , no angle, no flip, no skew ). Introduced in 2.3.4"
+          },
+          {
+            "name": "withoutShadow",
+            "type": "Boolean",
+            "attribute": "-",
+            "hasTable": false,
+            "description": "Remove current object shadow. Introduced in 2.4.2"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "toJSON",
+    "uniqueId": "toJSON",
+    "completeUrl": "toJSON",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#toJSON",
+    "description": "Returns a JSON representation of an instance",
+    "table": [
+      {
+        "name": "propertiesToInclude",
+        "type": "Array",
+        "attribute": "-",
+        "hasTable": false,
+        "description": "Any properties that you might want to additionally include in the output"
+      }
+    ]
+  },
+  {
+    "name": "toLocalPoint",
+    "uniqueId": "toLocalPoint",
+    "completeUrl": "toLocalPoint",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#toLocalPoint",
+    "description": "Returns the point in local coordinates",
+    "table": [
+      {
+        "name": "originY",
+        "type": "String",
+        "attribute": "-",
+        "hasTable": false,
+        "description": "Vertical origin: 'top', 'center' or 'bottom'"
+      }
+    ]
+  },
+  {
+    "name": "toString",
+    "uniqueId": "toString",
+    "completeUrl": "toString",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#toString",
+    "description": "Returns a string representation of an instance",
+    "table": []
+  },
+  {
+    "name": "toSVG",
+    "uniqueId": "toSVG",
+    "completeUrl": "toSVG",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#toSVG",
+    "description": "Returns svg representation of an instance",
+    "table": [
+      {
+        "name": "reviver",
+        "type": "function",
+        "attribute": "-",
+        "hasTable": false,
+        "description": "Method for further parsing of svg representation."
+      }
+    ]
+  },
+  {
+    "name": "transform",
+    "uniqueId": "transform",
+    "completeUrl": "transform",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#transform",
+    "description": "Transforms context when rendering an object",
+    "table": [
+      {
+        "name": "ctx",
+        "type": "CanvasRenderingContext2D",
+        "attribute": "-",
+        "hasTable": false,
+        "description": "Context"
+      }
+    ]
+  },
+  {
+    "name": "translateToCenterPoint",
+    "uniqueId": "translateToCenterPoint",
+    "completeUrl": "translateToCenterPoint",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#translateToCenterPoint",
+    "description": "Translates the coordinates from origin to center coordinates (based on the object's dimensions)",
+    "table": [
+      {
+        "name": "originY",
+        "type": "String",
+        "attribute": "-",
+        "hasTable": false,
+        "description": "Vertical origin: 'top', 'center' or 'bottom'"
+      }
+    ]
+  },
+  {
+    "name": "translateToGivenOrigin",
+    "uniqueId": "translateToGivenOrigin",
+    "completeUrl": "translateToGivenOrigin",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#translateToGivenOrigin",
+    "description": "Translates the coordinates from a set of origin to another (based on the object's dimensions)",
+    "table": [
+      {
+        "name": "toOriginY",
+        "type": "String",
+        "attribute": "-",
+        "hasTable": false,
+        "description": "Vertical origin: 'top', 'center' or 'bottom'"
+      }
+    ]
+  },
+  {
+    "name": "translateToOriginPoint",
+    "uniqueId": "translateToOriginPoint",
+    "completeUrl": "translateToOriginPoint",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#translateToOriginPoint",
+    "description": "Translates the coordinates from center to origin coordinates (based on the object's dimensions)",
+    "table": [
+      {
+        "name": "originY",
+        "type": "String",
+        "attribute": "-",
+        "hasTable": false,
+        "description": "Vertical origin: 'top', 'center' or 'bottom'"
+      }
+    ]
+  },
+  {
+    "name": "viewportCenter",
+    "uniqueId": "viewportCenter",
+    "completeUrl": "viewportCenter",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#viewportCenter",
+    "description": "Centers object on current viewport of canvas to which it was added last.\nYou might need to call `setCoords` on an object after centering, to update controls area.",
+    "table": []
+  },
+  {
+    "name": "viewportCenterH",
+    "uniqueId": "viewportCenterH",
+    "completeUrl": "viewportCenterH",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#viewportCenterH",
+    "description": "Centers object horizontally on current viewport of canvas to which it was added last.\nYou might need to call `setCoords` on an object after centering, to update controls area.",
+    "table": []
+  },
+  {
+    "name": "viewportCenterV",
+    "uniqueId": "viewportCenterV",
+    "completeUrl": "viewportCenterV",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#viewportCenterV",
+    "description": "Centers object vertically on current viewport of canvas to which it was added last.\nYou might need to call `setCoords` on an object after centering, to update controls area.",
+    "table": []
+  },
+  {
+    "name": "willDrawShadow",
+    "uniqueId": "willDrawShadow",
+    "completeUrl": "willDrawShadow",
+    "prevUrl": "http://fabricjs.com/docs/fabric.Rect.html#willDrawShadow",
+    "description": "Check if this object or a child object will cast a shadow\nused by Group.shouldCache to know if child has a shadow recursively",
+    "table": []
   }
 ]

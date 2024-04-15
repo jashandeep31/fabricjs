@@ -7,6 +7,7 @@ import {
 } from "./helpers";
 import * as cheerio from "cheerio";
 import { Property } from "./scrapper.types";
+import { ROOT_PATH } from "../utils";
 
 export const scrapper = async (url: string) => {
   const htmlFilePath = await scrapStoreAndReturnRawData(url, "objects");
@@ -20,8 +21,11 @@ export const scrapper = async (url: string) => {
 
   const propertiesList: Property[] = [];
   properties.each((index: number, element: cheerio.Element) => {
-    if (index === 161) {
-      processAndReturnProperty(element, url);
-    }
+    // if (index === 161) {
+    const parsedProperty = processAndReturnProperty(element, url);
+    propertiesList.push(parsedProperty);
   });
+  console.log(propertiesList.length);
+  // console.log(propertiesList);
+  // fs.writeFileSync(ROOT_PATH + "sample.json", JSON.stringify(propertiesList));
 };

@@ -24,6 +24,8 @@ export class TableDataProcessor {
     }
 
     rows.each((index, row) => {
+      if (forceSkipParse && index === 0) return;
+
       let rowData: SimplePropertyTableRow | ComplexPropertyTableRow = {
         name: "atr",
         type: "-",
@@ -32,35 +34,17 @@ export class TableDataProcessor {
         description: "",
       };
 
-      if (forceSkipParse && index === 0) {
-        return;
-      }
-
       const columns = this.$(row).find("td");
 
       columns.each((j, column) => {
         if (this.isNestedTableTd(column) && !forceSkipParse) return;
 
-        if (rowData.name === "atr") {
-          rowData.name = this.getName(column);
-        }
-        if (rowData.type === "-") {
-          rowData.type = this.getType(column);
-        }
+        // updating the rawData field here
+        this.populateRowData(rowData, column);
 
+        // updating the description of the field
         if (this.$(column).hasClass("description")) {
-          if (this.$(tableElement).find("table").length) {
-            const innerTableData: any[] = new TableDataProcessor(
-              column
-            ).processAndReturnTableData(true);
-            rowData = {
-              ...rowData,
-              hasTable: true,
-              description: innerTableData,
-            };
-          } else {
-            rowData.description = this.$(column).text().trim();
-          }
+          this.populateDescriptionData(rowData, tableElement, column);
         }
       });
       if (rowData.hasTable) {
@@ -72,28 +56,38 @@ export class TableDataProcessor {
     return tableArray;
   }
 
+  private populateRowData(
+    rowData: Partial<SimplePropertyTableRow | ComplexPropertyTableRow>,
+    column: cheerio.Element
+  ): void {
+    const className = this.$(column).attr("class");
+    switch (className) {
+      case "name":
+        rowData.name = this.$(column).text().trim();
+        break;
+      case "type":
+        rowData.type = this.$(column).text().trim();
+        break;
+    }
+  }
+
+  private populateDescriptionData(
+    rowData: Partial<SimplePropertyTableRow | ComplexPropertyTableRow>,
+    tableElement: cheerio.Cheerio<cheerio.Element>,
+    column: cheerio.Element
+  ): void {
+    if (this.$(tableElement).find("table").length) {
+      const innerTableData: any[] = new TableDataProcessor(
+        column
+      ).processAndReturnTableData(true);
+      rowData.hasTable = true;
+      rowData.description = innerTableData;
+    } else {
+      rowData.description = this.$(column).text().trim();
+    }
+  }
+
   private isNestedTableTd(column: cheerio.Element): boolean {
     return this.$(column).closest("table").parent("td").length > 0;
-  }
-
-  private getName(column: cheerio.Element): string {
-    if (this.$(column).hasClass("name")) {
-      return this.$(column).text().trim();
-    }
-    return "atr";
-  }
-
-  private getType(column: cheerio.Element): string {
-    if (this.$(column).hasClass("type")) {
-      return this.$(column).text().trim();
-    }
-    return "-";
-  }
-
-  private getAttribute(column: cheerio.Element): string {
-    if (this.$(column).hasClass("attribute")) {
-      return this.$(column).text().trim();
-    }
-    return "-";
   }
 }
