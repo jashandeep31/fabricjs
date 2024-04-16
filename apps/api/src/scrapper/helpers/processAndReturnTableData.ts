@@ -18,12 +18,18 @@ export class TableDataProcessor {
     const tableArray: PropertyTableRow[] = [];
 
     const tableElement = this.$(this.element).find("table").first();
-    let rows = this.$(tableElement).find("tr").remove("table").end();
+
+    let rows = this.$(tableElement).find("tr");
+    rows = rows.filter((index, element) => {
+      return this.$(element).parents("table").length === 1;
+    });
+
     if (forceSkipParse) {
       rows = this.$(tableElement).find("tr");
     }
+
     rows.each((index, row) => {
-      if (forceSkipParse && index === 0) return;
+      if (index === 0) return;
 
       let rowData: SimplePropertyTableRow | ComplexPropertyTableRow = {
         name: "atr",
@@ -51,7 +57,6 @@ export class TableDataProcessor {
       } else {
         tableArray.push(rowData as SimplePropertyTableRow);
       }
-      console.log(rowData);
     });
     return tableArray;
   }

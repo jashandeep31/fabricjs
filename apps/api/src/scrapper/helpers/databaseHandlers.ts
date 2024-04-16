@@ -32,12 +32,12 @@ export class PropertiesListToDataBase implements IPropertiesListToDataBase {
   }
 
   public async processAndAddData(tx: Prisma.TransactionClient) {
-    // await tx.extendedPropertyTableRow.deleteMany({});
-    // await tx.extendedPropertyTable.deleteMany({});
-    // await tx.propertyTableRow.deleteMany({});
-    // await tx.propertyTable.deleteMany({});
-    // await tx.property.deleteMany({});
-    // await tx.page.deleteMany({});
+    await tx.extendedPropertyTableRow.deleteMany({});
+    await tx.extendedPropertyTable.deleteMany({});
+    await tx.propertyTableRow.deleteMany({});
+    await tx.propertyTable.deleteMany({});
+    await tx.property.deleteMany({});
+    await tx.page.deleteMany({});
 
     const page = await this.createPage(tx);
     // this.properties.map(async (item, index) => {

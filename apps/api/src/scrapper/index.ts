@@ -32,15 +32,14 @@ export const scrapper = async (
   const propertiesList: Property[] = [];
   properties.each((index: number, element: cheerio.Element) => {
     // console.log(index);
-    if (index === 1) {
-      const parsedProperty = processAndReturnProperty(
-        element,
-        url,
-        uniqueId,
-        currentUrl
-      );
-      propertiesList.push(parsedProperty);
-    }
+    // if (index === 7) {
+    const parsedProperty = processAndReturnProperty(
+      element,
+      url,
+      uniqueId,
+      currentUrl
+    );
+    propertiesList.push(parsedProperty);
   });
 
   // console.log(htmlFilePath);
@@ -63,12 +62,12 @@ export const scrapper = async (
   //   JSON.stringify(propertiesList, null, 2)
   // );
 
-  // await db
-  //   .$transaction(async (tx) => {
-  //     const processedData =
-  //       await propertiesListToDatabaseClass.processAndAddData(tx);
-  //   })
-  //   .catch((error) => {
-  //     console.log(error);
-  //   });
+  await db
+    .$transaction(async (tx) => {
+      const processedData =
+        await propertiesListToDatabaseClass.processAndAddData(tx);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 };
