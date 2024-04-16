@@ -11,7 +11,7 @@ export type ComplexPropertyTableRow = {
   type: string;
   attribute: string;
   hasTable: true;
-  description: ComplexPropertyTableRow[];
+  description: PropertyTableRow[];
 };
 
 export type PropertyTableRow = SimplePropertyTableRow | ComplexPropertyTableRow;

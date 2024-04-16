@@ -1,9 +1,37 @@
 import express from "express";
+import dotenv from "dotenv";
+dotenv.config();
 import { scrapper } from "./scrapper";
-const PORT = 8000;
+const PORT = process.env.PORT || 8000;
 
 async function main() {
-  scrapper("http://fabricjs.com/docs/fabric.Rect.html", "docs", "Rect", false);
+  // const parameters = {
+  //   url: "http://fabricjs.com/docs/fabric.Rect.html",
+  //   dist: "html/objects",
+  //   currentUrl: "html/objects/rectangle",
+  //   name: "React",
+  //   uniqueId: "HTML.Objects.React",
+  //   forceRefresh: false,
+  // };
+  const parameters = {
+    url: "http://fabricjs.com/docs/fabric.Image.filters.Convolute.html",
+    dist: "html/image/filters",
+    currentUrl: "html/image/filters/convolute",
+    name: "Image.Filter",
+    uniqueId: "HTML.Image.Filter.Convolute",
+    forceRefresh: false,
+  };
+
+  scrapper(
+    ...(Object.values(parameters) as [
+      string,
+      string,
+      string,
+      string,
+      string,
+      boolean,
+    ])
+  );
 }
 
 main();

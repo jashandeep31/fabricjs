@@ -14,24 +14,25 @@ datasource db {
 }
 
 model Page {
-  id        Int        @id @default(autoincrement())
-  uniqueId  String     @unique
-  prevUrl   String
-  filePath  String
-  name      String
-  newUrl    String?
-  updatedAt DateTime   @updatedAt
-  createdAt DateTime   @default(now())
-  Property  Property[]
+  id         Int        @id @default(autoincrement())
+  uniqueId   String     @unique
+  prevUrl    String
+  filePath   String
+  name       String
+  currentUrl String
+  updatedAt  DateTime   @updatedAt
+  createdAt  DateTime   @default(now())
+  Property   Property[]
 }
 
 model Property {
-  id   Int    @id @default(autoincrement())
-  name String
+  id          Int     @id @default(autoincrement())
+  name        String
+  description String?
 
-  prevUrl  String
-  newUrl   String?
-  uniqueId String  @unique
+  prevUrl    String
+  currentUrl String
+  uniqueId   String @unique
 
   updatedAt DateTime @updatedAt
   createdAt DateTime @default(now())
@@ -45,7 +46,64 @@ model Property {
   properties    Property[] @relation("InheritedFrom")
 
   // used while inserting and updating the data no role in the data rendering
-  interitedFromUni String
-  interitedFinded  Boolean @default(false)
-  interitedExist   Boolean @default(false)
+  interitedFromUniqueId String?
+  interitedFinded       Boolean         @default(false)
+  interitedExist        Boolean         @default(false)
+  PropertyTable         PropertyTable[]
+}
+
+model PropertyTable {
+  id Int @id @default(autoincrement())
+
+  updatedAt DateTime @updatedAt
+  createdAt DateTime @default(now())
+
+  property         Property           @relation(fields: [propertyId], references: [id])
+  propertyId       Int
+  PropertyTableRow PropertyTableRow[]
+}
+
+model PropertyTableRow {
+  id    Int @id @default(autoincrement())
+  order Int
+
+  name        String
+  type        String
+  attribute   String
+  description String?
+  extendedRow Boolean @default(false)
+
+  updatedAt DateTime @updatedAt
+  createdAt DateTime @default(now())
+
+  propertyTable         PropertyTable          @relation(fields: [propertyTableId], references: [id])
+  propertyTableId       Int
+  ExtendedPropertyTable ExtendedPropertyTable?
+}
+
+model ExtendedPropertyTable {
+  id Int @id @default(autoincrement())
+
+  updatedAt DateTime @updatedAt
+  createdAt DateTime @default(now())
+
+  row                      PropertyTableRow           @relation(fields: [propertyTableRowId], references: [id])
+  propertyTableRowId       Int                        @unique
+  ExtendedPropertyTableRow ExtendedPropertyTableRow[]
+}
+
+model ExtendedPropertyTableRow {
+  id    Int @id @default(autoincrement())
+  order Int
+
+  name        String
+  type        String
+  attribute   String
+  description String
+
+  updatedAt DateTime @updatedAt
+  createdAt DateTime @default(now())
+
+  extendedPropertyTable   ExtendedPropertyTable @relation(fields: [extendedPropertyTableId], references: [id])
+  extendedPropertyTableId Int
 }

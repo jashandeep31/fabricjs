@@ -1,0 +1,255 @@
+[
+  {
+    "name": "applyTo",
+    "uniqueId": "HTML.Image.Filter.Convolute.applyto",
+    "completeUrl": "html/image/filters/convolute#applyto",
+    "prevUrl": "docs/fabric.Image.filters.Convolute.html#applyTo",
+    "description": "Apply this filter to the input image data provided.\n\nDetermines whether to use WebGL or Canvas2D based on the options.webgl flag.",
+    "table": [
+      {
+        "name": "options",
+        "type": "Object",
+        "attribute": "-",
+        "hasTable": true,
+        "description": [
+          {
+            "name": "passes",
+            "type": "Number",
+            "attribute": "-",
+            "hasTable": false,
+            "description": "The number of filters remaining to be executed"
+          },
+          {
+            "name": "webgl",
+            "type": "Boolean",
+            "attribute": "-",
+            "hasTable": false,
+            "description": "Whether to use webgl to render the filter."
+          },
+          {
+            "name": "sourceTexture",
+            "type": "WebGLTexture",
+            "attribute": "-",
+            "hasTable": false,
+            "description": "The texture setup as the source to be filtered."
+          },
+          {
+            "name": "targetTexture",
+            "type": "WebGLTexture",
+            "attribute": "-",
+            "hasTable": false,
+            "description": "The texture where filtered output should be drawn."
+          },
+          {
+            "name": "context",
+            "type": "WebGLRenderingContext",
+            "attribute": "-",
+            "hasTable": false,
+            "description": "The GL context used for rendering."
+          },
+          {
+            "name": "programCache",
+            "type": "Object",
+            "attribute": "-",
+            "hasTable": false,
+            "description": "A map of compiled shader programs, keyed by filter type."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "applyToWebGL",
+    "uniqueId": "HTML.Image.Filter.Convolute.applytowebgl",
+    "completeUrl": "html/image/filters/convolute#applytowebgl",
+    "prevUrl": "docs/fabric.Image.filters.Convolute.html#applyToWebGL",
+    "description": "Apply this filter using webgl.",
+    "table": [
+      {
+        "name": "options",
+        "type": "Object",
+        "attribute": "-",
+        "hasTable": true,
+        "description": [
+          {
+            "name": "passes",
+            "type": "Number",
+            "attribute": "-",
+            "hasTable": false,
+            "description": "The number of filters remaining to be executed"
+          },
+          {
+            "name": "webgl",
+            "type": "Boolean",
+            "attribute": "-",
+            "hasTable": false,
+            "description": "Whether to use webgl to render the filter."
+          },
+          {
+            "name": "originalTexture",
+            "type": "WebGLTexture",
+            "attribute": "-",
+            "hasTable": false,
+            "description": "The texture of the original input image."
+          },
+          {
+            "name": "sourceTexture",
+            "type": "WebGLTexture",
+            "attribute": "-",
+            "hasTable": false,
+            "description": "The texture setup as the source to be filtered."
+          },
+          {
+            "name": "targetTexture",
+            "type": "WebGLTexture",
+            "attribute": "-",
+            "hasTable": false,
+            "description": "The texture where filtered output should be drawn."
+          },
+          {
+            "name": "context",
+            "type": "WebGLRenderingContext",
+            "attribute": "-",
+            "hasTable": false,
+            "description": "The GL context used for rendering."
+          },
+          {
+            "name": "programCache",
+            "type": "Object",
+            "attribute": "-",
+            "hasTable": false,
+            "description": "A map of compiled shader programs, keyed by filter type."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "createHelpLayer",
+    "uniqueId": "HTML.Image.Filter.Convolute.createhelplayer",
+    "completeUrl": "html/image/filters/convolute#createhelplayer",
+    "prevUrl": "docs/fabric.Image.filters.Convolute.html#createHelpLayer",
+    "description": "If needed by a 2d filter, this functions can create an helper canvas to be used\nremember that options.targetCanvas is available for use till end of chain.",
+    "table": [
+      {
+        "name": "Atr",
+        "type": "",
+        "attribute": "-",
+        "hasTable": false,
+        "description": "If needed by a 2d filter, this functions can create an helper canvas to be used\nremember that options.targetCanvas is available for use till end of chain."
+      }
+    ]
+  },
+  {
+    "name": "createProgram",
+    "uniqueId": "HTML.Image.Filter.Convolute.createprogram",
+    "completeUrl": "html/image/filters/convolute#createprogram",
+    "prevUrl": "docs/fabric.Image.filters.Convolute.html#createProgram",
+    "description": "Compile this filter's shader program.",
+    "table": [
+      {
+        "name": "vertexSource",
+        "type": "String",
+        "attribute": "-",
+        "hasTable": false,
+        "description": "vertexShader source for compilation"
+      }
+    ]
+  },
+  {
+    "name": "getAttributeLocations",
+    "uniqueId": "HTML.Image.Filter.Convolute.getattributelocations",
+    "completeUrl": "html/image/filters/convolute#getattributelocations",
+    "prevUrl": "docs/fabric.Image.filters.Convolute.html#getAttributeLocations",
+    "description": "Return a map of attribute names to WebGLAttributeLocation objects.",
+    "table": [
+      {
+        "name": "program",
+        "type": "WebGLShaderProgram",
+        "attribute": "-",
+        "hasTable": false,
+        "description": "The shader program from which to take attribute locations."
+      }
+    ]
+  },
+  {
+    "name": "initialize",
+    "uniqueId": "HTML.Image.Filter.Convolute.initialize",
+    "completeUrl": "html/image/filters/convolute#initialize",
+    "prevUrl": "docs/fabric.Image.filters.Convolute.html#initialize",
+    "description": "Constructor",
+    "table": [
+      {
+        "name": "options",
+        "type": "Object",
+        "attribute": "-",
+        "hasTable": false,
+        "description": "Options object"
+      }
+    ]
+  },
+  {
+    "name": "isNeutralState",
+    "uniqueId": "HTML.Image.Filter.Convolute.isneutralstate",
+    "completeUrl": "html/image/filters/convolute#isneutralstate",
+    "prevUrl": "docs/fabric.Image.filters.Convolute.html#isNeutralState",
+    "description": "Generic isNeutral implementation for one parameter based filters.\nUsed only in image applyFilters to discard filters that will not have an effect\non the image\nOther filters may need their own version ( ColorMatrix, HueRotation, gamma, ComposedFilter )",
+    "table": [
+      {
+        "name": "options",
+        "type": "Object",
+        "attribute": "-",
+        "hasTable": false,
+        "description": ""
+      }
+    ]
+  },
+  {
+    "name": "sendAttributeData",
+    "uniqueId": "HTML.Image.Filter.Convolute.sendattributedata",
+    "completeUrl": "html/image/filters/convolute#sendattributedata",
+    "prevUrl": "docs/fabric.Image.filters.Convolute.html#sendAttributeData",
+    "description": "Send attribute data from this filter to its shader program on the GPU.",
+    "table": [
+      {
+        "name": "attributeLocations",
+        "type": "Object",
+        "attribute": "-",
+        "hasTable": false,
+        "description": "A map of shader attribute names to their locations."
+      }
+    ]
+  },
+  {
+    "name": "setOptions",
+    "uniqueId": "HTML.Image.Filter.Convolute.setoptions",
+    "completeUrl": "html/image/filters/convolute#setoptions",
+    "prevUrl": "docs/fabric.Image.filters.Convolute.html#setOptions",
+    "description": "Sets filter's properties from options",
+    "table": [
+      {
+        "name": "options",
+        "type": "Object",
+        "attribute": "-",
+        "hasTable": false,
+        "description": "Options object"
+      }
+    ]
+  },
+  {
+    "name": "toJSON",
+    "uniqueId": "HTML.Image.Filter.Convolute.tojson",
+    "completeUrl": "html/image/filters/convolute#tojson",
+    "prevUrl": "docs/fabric.Image.filters.Convolute.html#toJSON",
+    "description": "Returns a JSON representation of an instance",
+    "table": [
+      {
+        "name": "Atr",
+        "type": "Object",
+        "attribute": "-",
+        "hasTable": false,
+        "description": "Returns a JSON representation of an instance"
+      }
+    ]
+  }
+]

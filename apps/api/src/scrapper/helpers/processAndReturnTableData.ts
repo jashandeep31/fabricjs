@@ -22,7 +22,6 @@ export class TableDataProcessor {
     if (forceSkipParse) {
       rows = this.$(tableElement).find("tr");
     }
-
     rows.each((index, row) => {
       if (forceSkipParse && index === 0) return;
 
@@ -52,6 +51,7 @@ export class TableDataProcessor {
       } else {
         tableArray.push(rowData as SimplePropertyTableRow);
       }
+      console.log(rowData);
     });
     return tableArray;
   }

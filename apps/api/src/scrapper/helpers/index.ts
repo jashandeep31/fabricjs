@@ -39,7 +39,9 @@ export async function scrapStoreAndReturnRawData(
 
 export function processAndReturnProperty(
   element: cheerio.Element,
-  url: string
+  url: string,
+  uniqueId: string,
+  currentUrl: string
 ): Property {
   const $ = cheerio.load(element);
 
@@ -57,6 +59,7 @@ export function processAndReturnProperty(
     return title;
   };
   let title = getTitle();
+  console.log(title);
   const description = $(element).find("div.description").text().trim();
 
   // (!!  by removing PREV_WEBSITE_URL_BASE from url to make it dynamic with new domain name if changed in future   !!)
@@ -69,8 +72,6 @@ export function processAndReturnProperty(
   const inheritedUrl = (
     url + $(element).find("dl a:first ").attr("href")
   ).replace(PREV_WEBSITE_URL_BASE, "");
-  console.log(inheritedUrl);
-  console.log(prevUrl);
 
   const table = $(element).find("table").first();
   if (table.length) {
@@ -78,20 +79,35 @@ export function processAndReturnProperty(
     const res: PropertyTableRow[] = processor.processAndReturnTableData();
     return {
       name: title,
-      uniqueId: title,
-      completeUrl: title,
+      uniqueId: uniqueId + "." + getCustomSlug(title),
+      completeUrl: currentUrl + "#" + getCustomSlug(title),
       prevUrl: prevUrl,
       description: description,
       table: res,
     };
   } else {
+    // get all spans
+    const spans = $(element).find("span");
+    // join all text by | and remove extra spaces
+
+    const textArray = spans.map((index, span) => $(span).text()).get();
+
+    const joinedText = textArray.join(" | ");
     return {
       name: title,
-      uniqueId: title,
-      completeUrl: title,
+      uniqueId: uniqueId + "." + getCustomSlug(title),
+      completeUrl: currentUrl + "#" + getCustomSlug(title),
       prevUrl: prevUrl,
       description: description,
-      table: [],
+      table: [
+        {
+          name: "Atr",
+          type: joinedText,
+          attribute: "-",
+          hasTable: false,
+          description: description,
+        },
+      ],
     };
   }
 }
