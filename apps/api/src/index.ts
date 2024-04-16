@@ -3,7 +3,7 @@ import { scrapper } from "./scrapper";
 const PORT = 8000;
 
 async function main() {
-  scrapper("http://fabricjs.com/docs/fabric.Rect.html");
+  scrapper("http://fabricjs.com/docs/fabric.Rect.html", "docs", "Rect", false);
 }
 
 main();
