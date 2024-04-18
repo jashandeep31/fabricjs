@@ -1,0 +1,601 @@
+[
+  {
+    "id": 34538,
+    "name": "applyTo",
+    "description": "Apply this filter to the input image data provided.\n\nDetermines whether to use WebGL or Canvas2D based on the options.webgl flag.",
+    "prevUrl": "docs/fabric.Image.filters.Convolute.html#applyTo",
+    "currentUrl": "html/image/filters/convolute#applyto",
+    "uniqueId": "HTML.Image.Filter.Convolute.applyto",
+    "updatedAt": "2024-04-17T01:59:40.588Z",
+    "createdAt": "2024-04-17T01:59:40.588Z",
+    "pageId": 44,
+    "inherited": false,
+    "inheritedId": null,
+    "interitedFromUniqueId": null,
+    "interitedFinded": false,
+    "interitedExist": false,
+    "PropertyTable": [
+      {
+        "id": 34155,
+        "updatedAt": "2024-04-17T01:59:40.588Z",
+        "createdAt": "2024-04-17T01:59:40.588Z",
+        "propertyId": 34538,
+        "PropertyTableRow": [
+          {
+            "id": 33659,
+            "order": 0,
+            "name": "options",
+            "type": "Object",
+            "attribute": "-",
+            "description": null,
+            "extendedRow": false,
+            "updatedAt": "2024-04-17T01:59:40.588Z",
+            "createdAt": "2024-04-17T01:59:40.588Z",
+            "propertyTableId": 34155,
+            "ExtendedPropertyTable": {
+              "id": 1508,
+              "updatedAt": "2024-04-17T01:59:40.588Z",
+              "createdAt": "2024-04-17T01:59:40.588Z",
+              "propertyTableRowId": 33659,
+              "ExtendedPropertyTableRow": [
+                {
+                  "id": 4377,
+                  "order": 0,
+                  "name": "passes",
+                  "type": "Number",
+                  "attribute": "-",
+                  "description": "The number of filters remaining to be executed",
+                  "updatedAt": "2024-04-17T01:59:40.588Z",
+                  "createdAt": "2024-04-17T01:59:40.588Z",
+                  "extendedPropertyTableId": 1508
+                },
+                {
+                  "id": 4378,
+                  "order": 1,
+                  "name": "webgl",
+                  "type": "Boolean",
+                  "attribute": "-",
+                  "description": "Whether to use webgl to render the filter.",
+                  "updatedAt": "2024-04-17T01:59:40.588Z",
+                  "createdAt": "2024-04-17T01:59:40.588Z",
+                  "extendedPropertyTableId": 1508
+                },
+                {
+                  "id": 4379,
+                  "order": 2,
+                  "name": "sourceTexture",
+                  "type": "WebGLTexture",
+                  "attribute": "-",
+                  "description": "The texture setup as the source to be filtered.",
+                  "updatedAt": "2024-04-17T01:59:40.588Z",
+                  "createdAt": "2024-04-17T01:59:40.588Z",
+                  "extendedPropertyTableId": 1508
+                },
+                {
+                  "id": 4380,
+                  "order": 3,
+                  "name": "targetTexture",
+                  "type": "WebGLTexture",
+                  "attribute": "-",
+                  "description": "The texture where filtered output should be drawn.",
+                  "updatedAt": "2024-04-17T01:59:40.588Z",
+                  "createdAt": "2024-04-17T01:59:40.588Z",
+                  "extendedPropertyTableId": 1508
+                },
+                {
+                  "id": 4381,
+                  "order": 4,
+                  "name": "context",
+                  "type": "WebGLRenderingContext",
+                  "attribute": "-",
+                  "description": "The GL context used for rendering.",
+                  "updatedAt": "2024-04-17T01:59:40.588Z",
+                  "createdAt": "2024-04-17T01:59:40.588Z",
+                  "extendedPropertyTableId": 1508
+                },
+                {
+                  "id": 4382,
+                  "order": 5,
+                  "name": "programCache",
+                  "type": "Object",
+                  "attribute": "-",
+                  "description": "A map of compiled shader programs, keyed by filter type.",
+                  "updatedAt": "2024-04-17T01:59:40.588Z",
+                  "createdAt": "2024-04-17T01:59:40.588Z",
+                  "extendedPropertyTableId": 1508
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 34539,
+    "name": "applyToWebGL",
+    "description": "Apply this filter using webgl.",
+    "prevUrl": "docs/fabric.Image.filters.Convolute.html#applyToWebGL",
+    "currentUrl": "html/image/filters/convolute#applytowebgl",
+    "uniqueId": "HTML.Image.Filter.Convolute.applytowebgl",
+    "updatedAt": "2024-04-17T01:59:40.588Z",
+    "createdAt": "2024-04-17T01:59:40.588Z",
+    "pageId": 44,
+    "inherited": false,
+    "inheritedId": null,
+    "interitedFromUniqueId": null,
+    "interitedFinded": false,
+    "interitedExist": false,
+    "PropertyTable": [
+      {
+        "id": 34156,
+        "updatedAt": "2024-04-17T01:59:40.588Z",
+        "createdAt": "2024-04-17T01:59:40.588Z",
+        "propertyId": 34539,
+        "PropertyTableRow": [
+          {
+            "id": 33660,
+            "order": 0,
+            "name": "options",
+            "type": "Object",
+            "attribute": "-",
+            "description": null,
+            "extendedRow": false,
+            "updatedAt": "2024-04-17T01:59:40.588Z",
+            "createdAt": "2024-04-17T01:59:40.588Z",
+            "propertyTableId": 34156,
+            "ExtendedPropertyTable": {
+              "id": 1509,
+              "updatedAt": "2024-04-17T01:59:40.588Z",
+              "createdAt": "2024-04-17T01:59:40.588Z",
+              "propertyTableRowId": 33660,
+              "ExtendedPropertyTableRow": [
+                {
+                  "id": 4383,
+                  "order": 0,
+                  "name": "passes",
+                  "type": "Number",
+                  "attribute": "-",
+                  "description": "The number of filters remaining to be executed",
+                  "updatedAt": "2024-04-17T01:59:40.588Z",
+                  "createdAt": "2024-04-17T01:59:40.588Z",
+                  "extendedPropertyTableId": 1509
+                },
+                {
+                  "id": 4384,
+                  "order": 1,
+                  "name": "webgl",
+                  "type": "Boolean",
+                  "attribute": "-",
+                  "description": "Whether to use webgl to render the filter.",
+                  "updatedAt": "2024-04-17T01:59:40.588Z",
+                  "createdAt": "2024-04-17T01:59:40.588Z",
+                  "extendedPropertyTableId": 1509
+                },
+                {
+                  "id": 4385,
+                  "order": 2,
+                  "name": "originalTexture",
+                  "type": "WebGLTexture",
+                  "attribute": "-",
+                  "description": "The texture of the original input image.",
+                  "updatedAt": "2024-04-17T01:59:40.588Z",
+                  "createdAt": "2024-04-17T01:59:40.588Z",
+                  "extendedPropertyTableId": 1509
+                },
+                {
+                  "id": 4386,
+                  "order": 3,
+                  "name": "sourceTexture",
+                  "type": "WebGLTexture",
+                  "attribute": "-",
+                  "description": "The texture setup as the source to be filtered.",
+                  "updatedAt": "2024-04-17T01:59:40.588Z",
+                  "createdAt": "2024-04-17T01:59:40.588Z",
+                  "extendedPropertyTableId": 1509
+                },
+                {
+                  "id": 4387,
+                  "order": 4,
+                  "name": "targetTexture",
+                  "type": "WebGLTexture",
+                  "attribute": "-",
+                  "description": "The texture where filtered output should be drawn.",
+                  "updatedAt": "2024-04-17T01:59:40.588Z",
+                  "createdAt": "2024-04-17T01:59:40.588Z",
+                  "extendedPropertyTableId": 1509
+                },
+                {
+                  "id": 4388,
+                  "order": 5,
+                  "name": "context",
+                  "type": "WebGLRenderingContext",
+                  "attribute": "-",
+                  "description": "The GL context used for rendering.",
+                  "updatedAt": "2024-04-17T01:59:40.588Z",
+                  "createdAt": "2024-04-17T01:59:40.588Z",
+                  "extendedPropertyTableId": 1509
+                },
+                {
+                  "id": 4389,
+                  "order": 6,
+                  "name": "programCache",
+                  "type": "Object",
+                  "attribute": "-",
+                  "description": "A map of compiled shader programs, keyed by filter type.",
+                  "updatedAt": "2024-04-17T01:59:40.588Z",
+                  "createdAt": "2024-04-17T01:59:40.588Z",
+                  "extendedPropertyTableId": 1509
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 34540,
+    "name": "createHelpLayer",
+    "description": "If needed by a 2d filter, this functions can create an helper canvas to be used\nremember that options.targetCanvas is available for use till end of chain.",
+    "prevUrl": "docs/fabric.Image.filters.Convolute.html#createHelpLayer",
+    "currentUrl": "html/image/filters/convolute#createhelplayer",
+    "uniqueId": "HTML.Image.Filter.Convolute.createhelplayer",
+    "updatedAt": "2024-04-17T01:59:40.588Z",
+    "createdAt": "2024-04-17T01:59:40.588Z",
+    "pageId": 44,
+    "inherited": false,
+    "inheritedId": null,
+    "interitedFromUniqueId": null,
+    "interitedFinded": false,
+    "interitedExist": false,
+    "PropertyTable": [
+      {
+        "id": 34157,
+        "updatedAt": "2024-04-17T01:59:40.588Z",
+        "createdAt": "2024-04-17T01:59:40.588Z",
+        "propertyId": 34540,
+        "PropertyTableRow": [
+          {
+            "id": 33661,
+            "order": 0,
+            "name": "Atr",
+            "type": "",
+            "attribute": "-",
+            "description": "If needed by a 2d filter, this functions can create an helper canvas to be used\nremember that options.targetCanvas is available for use till end of chain.",
+            "extendedRow": false,
+            "updatedAt": "2024-04-17T01:59:40.588Z",
+            "createdAt": "2024-04-17T01:59:40.588Z",
+            "propertyTableId": 34157,
+            "ExtendedPropertyTable": null
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 34541,
+    "name": "createProgram",
+    "description": "Compile this filter's shader program.",
+    "prevUrl": "docs/fabric.Image.filters.Convolute.html#createProgram",
+    "currentUrl": "html/image/filters/convolute#createprogram",
+    "uniqueId": "HTML.Image.Filter.Convolute.createprogram",
+    "updatedAt": "2024-04-17T01:59:40.588Z",
+    "createdAt": "2024-04-17T01:59:40.588Z",
+    "pageId": 44,
+    "inherited": false,
+    "inheritedId": null,
+    "interitedFromUniqueId": null,
+    "interitedFinded": false,
+    "interitedExist": false,
+    "PropertyTable": [
+      {
+        "id": 34158,
+        "updatedAt": "2024-04-17T01:59:40.588Z",
+        "createdAt": "2024-04-17T01:59:40.588Z",
+        "propertyId": 34541,
+        "PropertyTableRow": [
+          {
+            "id": 33662,
+            "order": 0,
+            "name": "gl",
+            "type": "WebGLRenderingContext",
+            "attribute": "-",
+            "description": "The GL canvas context to use for shader compilation.",
+            "extendedRow": false,
+            "updatedAt": "2024-04-17T01:59:40.588Z",
+            "createdAt": "2024-04-17T01:59:40.588Z",
+            "propertyTableId": 34158,
+            "ExtendedPropertyTable": null
+          },
+          {
+            "id": 33663,
+            "order": 1,
+            "name": "fragmentSource",
+            "type": "String",
+            "attribute": "-",
+            "description": "fragmentShader source for compilation",
+            "extendedRow": false,
+            "updatedAt": "2024-04-17T01:59:40.588Z",
+            "createdAt": "2024-04-17T01:59:40.588Z",
+            "propertyTableId": 34158,
+            "ExtendedPropertyTable": null
+          },
+          {
+            "id": 33664,
+            "order": 2,
+            "name": "vertexSource",
+            "type": "String",
+            "attribute": "-",
+            "description": "vertexShader source for compilation",
+            "extendedRow": false,
+            "updatedAt": "2024-04-17T01:59:40.588Z",
+            "createdAt": "2024-04-17T01:59:40.588Z",
+            "propertyTableId": 34158,
+            "ExtendedPropertyTable": null
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 34542,
+    "name": "getAttributeLocations",
+    "description": "Return a map of attribute names to WebGLAttributeLocation objects.",
+    "prevUrl": "docs/fabric.Image.filters.Convolute.html#getAttributeLocations",
+    "currentUrl": "html/image/filters/convolute#getattributelocations",
+    "uniqueId": "HTML.Image.Filter.Convolute.getattributelocations",
+    "updatedAt": "2024-04-17T01:59:40.588Z",
+    "createdAt": "2024-04-17T01:59:40.588Z",
+    "pageId": 44,
+    "inherited": false,
+    "inheritedId": null,
+    "interitedFromUniqueId": null,
+    "interitedFinded": false,
+    "interitedExist": false,
+    "PropertyTable": [
+      {
+        "id": 34159,
+        "updatedAt": "2024-04-17T01:59:40.588Z",
+        "createdAt": "2024-04-17T01:59:40.588Z",
+        "propertyId": 34542,
+        "PropertyTableRow": [
+          {
+            "id": 33665,
+            "order": 0,
+            "name": "gl",
+            "type": "WebGLRenderingContext",
+            "attribute": "-",
+            "description": "The canvas context used to compile the shader program.",
+            "extendedRow": false,
+            "updatedAt": "2024-04-17T01:59:40.588Z",
+            "createdAt": "2024-04-17T01:59:40.588Z",
+            "propertyTableId": 34159,
+            "ExtendedPropertyTable": null
+          },
+          {
+            "id": 33666,
+            "order": 1,
+            "name": "program",
+            "type": "WebGLShaderProgram",
+            "attribute": "-",
+            "description": "The shader program from which to take attribute locations.",
+            "extendedRow": false,
+            "updatedAt": "2024-04-17T01:59:40.588Z",
+            "createdAt": "2024-04-17T01:59:40.588Z",
+            "propertyTableId": 34159,
+            "ExtendedPropertyTable": null
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 34543,
+    "name": "initialize",
+    "description": "Constructor",
+    "prevUrl": "docs/fabric.Image.filters.Convolute.html#initialize",
+    "currentUrl": "html/image/filters/convolute#initialize",
+    "uniqueId": "HTML.Image.Filter.Convolute.initialize",
+    "updatedAt": "2024-04-17T01:59:40.588Z",
+    "createdAt": "2024-04-17T01:59:40.588Z",
+    "pageId": 44,
+    "inherited": false,
+    "inheritedId": null,
+    "interitedFromUniqueId": null,
+    "interitedFinded": false,
+    "interitedExist": false,
+    "PropertyTable": [
+      {
+        "id": 34160,
+        "updatedAt": "2024-04-17T01:59:40.588Z",
+        "createdAt": "2024-04-17T01:59:40.588Z",
+        "propertyId": 34543,
+        "PropertyTableRow": [
+          {
+            "id": 33667,
+            "order": 0,
+            "name": "options",
+            "type": "Object",
+            "attribute": "-",
+            "description": "Options object",
+            "extendedRow": false,
+            "updatedAt": "2024-04-17T01:59:40.588Z",
+            "createdAt": "2024-04-17T01:59:40.588Z",
+            "propertyTableId": 34160,
+            "ExtendedPropertyTable": null
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 34544,
+    "name": "isNeutralState",
+    "description": "Generic isNeutral implementation for one parameter based filters.\nUsed only in image applyFilters to discard filters that will not have an effect\non the image\nOther filters may need their own version ( ColorMatrix, HueRotation, gamma, ComposedFilter )",
+    "prevUrl": "docs/fabric.Image.filters.Convolute.html#isNeutralState",
+    "currentUrl": "html/image/filters/convolute#isneutralstate",
+    "uniqueId": "HTML.Image.Filter.Convolute.isneutralstate",
+    "updatedAt": "2024-04-17T01:59:40.588Z",
+    "createdAt": "2024-04-17T01:59:40.588Z",
+    "pageId": 44,
+    "inherited": false,
+    "inheritedId": null,
+    "interitedFromUniqueId": null,
+    "interitedFinded": false,
+    "interitedExist": false,
+    "PropertyTable": [
+      {
+        "id": 34161,
+        "updatedAt": "2024-04-17T01:59:40.588Z",
+        "createdAt": "2024-04-17T01:59:40.588Z",
+        "propertyId": 34544,
+        "PropertyTableRow": [
+          {
+            "id": 33668,
+            "order": 0,
+            "name": "options",
+            "type": "Object",
+            "attribute": "-",
+            "description": "",
+            "extendedRow": false,
+            "updatedAt": "2024-04-17T01:59:40.588Z",
+            "createdAt": "2024-04-17T01:59:40.588Z",
+            "propertyTableId": 34161,
+            "ExtendedPropertyTable": null
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 34545,
+    "name": "sendAttributeData",
+    "description": "Send attribute data from this filter to its shader program on the GPU.",
+    "prevUrl": "docs/fabric.Image.filters.Convolute.html#sendAttributeData",
+    "currentUrl": "html/image/filters/convolute#sendattributedata",
+    "uniqueId": "HTML.Image.Filter.Convolute.sendattributedata",
+    "updatedAt": "2024-04-17T01:59:40.588Z",
+    "createdAt": "2024-04-17T01:59:40.588Z",
+    "pageId": 44,
+    "inherited": false,
+    "inheritedId": null,
+    "interitedFromUniqueId": null,
+    "interitedFinded": false,
+    "interitedExist": false,
+    "PropertyTable": [
+      {
+        "id": 34162,
+        "updatedAt": "2024-04-17T01:59:40.588Z",
+        "createdAt": "2024-04-17T01:59:40.588Z",
+        "propertyId": 34545,
+        "PropertyTableRow": [
+          {
+            "id": 33669,
+            "order": 0,
+            "name": "gl",
+            "type": "WebGLRenderingContext",
+            "attribute": "-",
+            "description": "The canvas context used to compile the shader program.",
+            "extendedRow": false,
+            "updatedAt": "2024-04-17T01:59:40.588Z",
+            "createdAt": "2024-04-17T01:59:40.588Z",
+            "propertyTableId": 34162,
+            "ExtendedPropertyTable": null
+          },
+          {
+            "id": 33670,
+            "order": 1,
+            "name": "attributeLocations",
+            "type": "Object",
+            "attribute": "-",
+            "description": "A map of shader attribute names to their locations.",
+            "extendedRow": false,
+            "updatedAt": "2024-04-17T01:59:40.588Z",
+            "createdAt": "2024-04-17T01:59:40.588Z",
+            "propertyTableId": 34162,
+            "ExtendedPropertyTable": null
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 34546,
+    "name": "setOptions",
+    "description": "Sets filter's properties from options",
+    "prevUrl": "docs/fabric.Image.filters.Convolute.html#setOptions",
+    "currentUrl": "html/image/filters/convolute#setoptions",
+    "uniqueId": "HTML.Image.Filter.Convolute.setoptions",
+    "updatedAt": "2024-04-17T01:59:40.588Z",
+    "createdAt": "2024-04-17T01:59:40.588Z",
+    "pageId": 44,
+    "inherited": false,
+    "inheritedId": null,
+    "interitedFromUniqueId": null,
+    "interitedFinded": false,
+    "interitedExist": false,
+    "PropertyTable": [
+      {
+        "id": 34163,
+        "updatedAt": "2024-04-17T01:59:40.588Z",
+        "createdAt": "2024-04-17T01:59:40.588Z",
+        "propertyId": 34546,
+        "PropertyTableRow": [
+          {
+            "id": 33671,
+            "order": 0,
+            "name": "options",
+            "type": "Object",
+            "attribute": "-",
+            "description": "Options object",
+            "extendedRow": false,
+            "updatedAt": "2024-04-17T01:59:40.588Z",
+            "createdAt": "2024-04-17T01:59:40.588Z",
+            "propertyTableId": 34163,
+            "ExtendedPropertyTable": null
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 34547,
+    "name": "toJSON",
+    "description": "Returns a JSON representation of an instance",
+    "prevUrl": "docs/fabric.Image.filters.Convolute.html#toJSON",
+    "currentUrl": "html/image/filters/convolute#tojson",
+    "uniqueId": "HTML.Image.Filter.Convolute.tojson",
+    "updatedAt": "2024-04-17T01:59:40.588Z",
+    "createdAt": "2024-04-17T01:59:40.588Z",
+    "pageId": 44,
+    "inherited": false,
+    "inheritedId": null,
+    "interitedFromUniqueId": null,
+    "interitedFinded": false,
+    "interitedExist": false,
+    "PropertyTable": [
+      {
+        "id": 34164,
+        "updatedAt": "2024-04-17T01:59:40.588Z",
+        "createdAt": "2024-04-17T01:59:40.588Z",
+        "propertyId": 34547,
+        "PropertyTableRow": [
+          {
+            "id": 33672,
+            "order": 0,
+            "name": "Atr",
+            "type": "Object",
+            "attribute": "-",
+            "description": "Returns a JSON representation of an instance",
+            "extendedRow": false,
+            "updatedAt": "2024-04-17T01:59:40.588Z",
+            "createdAt": "2024-04-17T01:59:40.588Z",
+            "propertyTableId": 34164,
+            "ExtendedPropertyTable": null
+          }
+        ]
+      }
+    ]
+  }
+]
