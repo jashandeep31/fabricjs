@@ -3,6 +3,8 @@ import React from "react";
 import { cn } from "../lib/utils";
 import type { MDXComponents } from "mdx/types";
 import { MDXRemote } from "next-mdx-remote";
+import { Alert, AlertDescription, AlertTitle } from "./ui/alert";
+import { Info } from "lucide-react";
 // import { Alert, AlertTitle } from "./ui/alert";
 
 const components = (components: MDXComponents) => {
@@ -149,15 +151,18 @@ const components = (components: MDXComponents) => {
     Callout: ({
       title,
       children,
+      variant = "default",
       ...props
-    }: React.HTMLAttributes<any> & {
+    }: React.HTMLAttributes<HTMLElement> & {
       title: string;
+      variant: "default" | "destructive";
     }) => (
-      // <Alert>
-      //   <AlertTitle>{title}</AlertTitle>
-      //   {/* <AlertDescription>{children}</AlertDescription> */}
-      // </Alert>
-      <div></div>
+      <Alert className="mt-3" variant={variant} {...props}>
+        <Info className="w-4 h-4 mr-2" />
+        <AlertTitle>{title}</AlertTitle>
+        <AlertDescription>{children}</AlertDescription>
+      </Alert>
+      // <div></div>
     ),
     ...components,
   };
