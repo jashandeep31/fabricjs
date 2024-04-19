@@ -16,3 +16,26 @@ Still confused what you can do with fabric js take a look at [examples](#).
 This is the description of the callout
 
 </Callout>
+
+```html title="index.html" output=true {9-18}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hello to Fabric.JS</title>
+  </head>
+  <body>
+    <canvas id="c" width="500" style="border: 1px solid black;" height="200"></canvas>
+    <script src=https://cdn.jsdelivr.net/npm/fabric@latest/dist/index.js></script>
+    <script>
+      const canvas = new fabric.Canvas("c");
+      const text = new fabric.Text("Hello Fabric.js", {
+        fontSize: 20,
+        fill: "green",
+      });
+      canvas.add(text);
+    </script>
+  </body>
+</html>
+```

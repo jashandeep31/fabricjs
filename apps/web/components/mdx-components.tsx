@@ -5,6 +5,7 @@ import type { MDXComponents } from "mdx/types";
 import { MDXRemote } from "next-mdx-remote";
 import { Alert, AlertDescription, AlertTitle } from "./ui/alert";
 import { Info } from "lucide-react";
+import MdxPreTagRenderer from "./mdx-pretag";
 // import { Alert, AlertTitle } from "./ui/alert";
 
 const components = (components: MDXComponents) => {
@@ -173,6 +174,14 @@ const components = (components: MDXComponents) => {
         {...props}
       />
     ),
+    pre: ({
+      __title__ = "",
+      ...props
+    }: React.HTMLAttributes<HTMLPreElement> & {
+      __title__?: string;
+    }) => {
+      return <MdxPreTagRenderer {...props} __title__={__title__} />;
+    },
     ...components,
   };
 };

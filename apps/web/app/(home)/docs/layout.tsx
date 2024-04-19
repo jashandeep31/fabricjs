@@ -1,5 +1,6 @@
+import "./mdx.css";
 import React from "react";
-import AsideBarDocs from "../../../../components/asidebar-docs";
+import AsideBarDocs from "../../../components/asidebar-docs";
 
 const layout = ({ children }: { children: React.ReactNode }) => {
   return (
