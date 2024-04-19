@@ -182,6 +182,7 @@ const components = (components: MDXComponents) => {
     }) => {
       return <MdxPreTagRenderer {...props} __title__={__title__} />;
     },
+
     ...components,
   };
 };

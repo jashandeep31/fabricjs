@@ -25,14 +25,14 @@ const MdxPreTagRenderer = ({
     }, 1500);
   };
   return (
-    <div className="mt-6  overflow-x-auto ">
+    <div className="  overflow-x-auto ">
       <div
         className={`flex items-center ${
           __output__ ? "justify-between" : "justify-end"
         }  mb-2`}
       >
         <div
-          className={`overflow-hidden rounded-md bg-muted p-1  ${
+          className={`overflow-hidden rounded-md bg-muted p-1 mt-6  ${
             !__output__ ? "hidden" : "inline-block"
           } `}
         >

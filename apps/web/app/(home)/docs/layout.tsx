@@ -8,7 +8,7 @@ const layout = ({ children }: { children: React.ReactNode }) => {
       <aside className="md:block hidden">
         <AsideBarDocs />
       </aside>
-      <div>{children}</div>
+      <div className="pb-12">{children}</div>
     </div>
   );
 };

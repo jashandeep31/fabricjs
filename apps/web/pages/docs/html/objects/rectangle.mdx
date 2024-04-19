@@ -1,41 +1,76 @@
 ---
-title: FabricJS
-description: Fabric.js is a powerful and simple Javascript HTML5 canvas library Fabric provides interactive object model on top of canvas element Fabric also has SVG-to-canvas (and canvas-to-SVG) parser.
+title: Rectangle
+description: Rectangle Object in Fabric js
 ---
 
-## Why Fabric JS
+## What is Rectangle (Rect)\*\*?
 
-Fabric.js simplifies `HTML5` canvas manipulation with an npm package. Unlike the low-level canvas API, Fabric.js offers a high-level object model for intuitive graphic creation and manipulation. It manages canvas state and rendering, enabling direct object interaction instead of manual bitmap modification. This makes it ideal for interactive web apps and complex graphics.
+A rectangle? It's just a square that's been stretched out sideways, like a balloon animal on a diet. Still confused check the output of the given code.
+
+<Callout title="Please note">
+  Its not `fabric.Rectangle` it's `fabric.Rect`. So make sure to use correct one
+  to avoid errors.
+</Callout>
 
 <br />
 
-Still confused what you can do with fabric js take a look at [examples](#).
+### Adding first rectangle
 
-<Callout title="This is the title" variant="default">
+```html title="index.html" output=true {2-19}
+<body>
+  <canvas
+    id="c"
+    width="200"
+    style="border: 1px solid black"
+    height="200"
+  ></canvas>
+  <script src="https://cdn.jsdelivr.net/npm/fabric@latest/dist/fabric.js"></script>
+  <script>
+    let canvas = new fabric.Canvas("c");
+    let rect = new fabric.Rect({
+      left: 0,
+      top: 0,
+      fill: "red",
+      width: 100,
+      height: 150,
+    });
+    canvas.add(rect);
+  </script>
+</body>
+```
 
-This is the description of the callout
+### Rotating a rectangle
 
+Oh! so our rectangle is ready. Now lets play a little more with it. Let's just **Rotate** it a little bit.
+
+```html title="index.html" output=true  {17}
+<body>
+  <canvas
+    id="c"
+    width="200"
+    style="border: 1px solid black"
+    height="200"
+  ></canvas>
+  <script src="https://cdn.jsdelivr.net/npm/fabric@latest/dist/fabric.js"></script>
+  <script>
+    let canvas = new fabric.Canvas("c");
+    let rect = new fabric.Rect({
+      left: 50,
+      top: 50,
+      fill: "red",
+      width: 75,
+      height: 50,
+      angle: 45,
+    });
+    canvas.add(rect);
+  </script>
+</body>
+```
+
+<Callout title="Getting properties">
+  Using method `rect.get()` will also help you to get the current of value of
+  that property. like using `rect.get('angle')` will give us 45 from the above
+  example.
 </Callout>
 
-```html title="index.html" output=true {9-18}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hello to Fabric.JS</title>
-  </head>
-  <body>
-    <canvas id="c" width="500" style="border: 1px solid black;" height="200"></canvas>
-    <script src=https://cdn.jsdelivr.net/npm/fabric@latest/dist/index.js></script>
-    <script>
-      const canvas = new fabric.Canvas("c");
-      const text = new fabric.Text("Hello Fabric.js", {
-        fontSize: 20,
-        fill: "green",
-      });
-      canvas.add(text);
-    </script>
-  </body>
-</html>
-```
+<br />

@@ -1,8 +1,11 @@
 "use client";
+import { htmlDocsLinks } from "@/config/menu-config";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import React, { useLayoutEffect, useState, useMemo } from "react";
 
 const AsideBarDocs = () => {
+  const pathname = usePathname();
   const [navbarHeight, setNavbarHeight] = useState("3.5rem");
 
   const calculateAsideBarHeight = useMemo(() => {
@@ -23,36 +26,24 @@ const AsideBarDocs = () => {
       className={`border-r sticky`}
       style={{ height: calculateAsideBarHeight, top: navbarHeight }}
     >
-      <div className="md:pt-12 pt-6">
-        <div>
-          <h3 className="font-medium text-sm">Getting Started</h3>
-          <ul className=" pl-1 mt-1 space-y-1">
-            <li>
-              <Link
-                href="/docs/html/objects/rectangle"
-                className="text-foreground/60 text-sm hover:underline "
-              >
-                Introduction
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/docs/html/objects/rectangle"
-                className="text-foreground/60 text-sm hover:underline "
-              >
-                Getting Started
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/docs/html/objects/rectangle"
-                className="text-foreground/60 text-sm hover:underline "
-              >
-                Why Fabric Js?
-              </Link>
-            </li>
-          </ul>
-        </div>
+      <div className="md:pt-12 pt-6 grid gap-6">
+        {htmlDocsLinks.map((item, index) => (
+          <div key={index} className="">
+            <h3 className="font-medium text-sm">{item.title}</h3>
+            <ul className=" pl-1 mt-1 space-y-1">
+              {item.links.map((link, j) => (
+                <li key={j}>
+                  <Link
+                    href={link.path}
+                    className={`${pathname === link.path ? "text-foreground font-medium underline " : "text-foreground/60"} text-sm hover:underline `}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
       </div>
     </div>
   );
