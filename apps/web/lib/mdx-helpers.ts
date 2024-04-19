@@ -84,6 +84,7 @@ export async function getPageBySlug(slug: string): Promise<{
       } as any,
     });
 
+    console.log(mdxContent);
     return {
       meta: {
         title: mdxContent.frontmatter.title as string,
