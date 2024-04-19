@@ -6,8 +6,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "dependencies": {
-    "docs": "^0.3.2-canary.0",
-    "next-mdx-remote": "^4.4.1"
-  }
+  "dependencies": {}
 }
