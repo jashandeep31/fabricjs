@@ -37,3 +37,6 @@ yarn-error.log*
 .DS_Store
 *.pem
 
+# add .pages to ignore
+
+apps/web/.pages
