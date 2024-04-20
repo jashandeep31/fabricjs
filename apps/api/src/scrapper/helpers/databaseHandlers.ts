@@ -54,6 +54,7 @@ export class PropertiesListToDataBase implements IPropertiesListToDataBase {
               order: rowIndex,
               type: row.type,
               attribute: row.attribute,
+              extendedRow: true,
               propertyTableId: propertyTable.id,
             },
           });
@@ -82,7 +83,6 @@ export class PropertiesListToDataBase implements IPropertiesListToDataBase {
             data: {
               name: row.name,
               order: rowIndex,
-
               type: row.type,
               attribute: row.attribute,
               description: row.description,

@@ -9,7 +9,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   //  most prob getting occured due to sticky navbar
   const pathname = usePathname();
   useEffect(() => {
-    window.scrollTo(0, 0);
+    // window.scrollTo(0, 0);
   }, [pathname]);
 
   return (
