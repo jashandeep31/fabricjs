@@ -1,8 +1,17 @@
+"use client";
 import "./mdx.css";
-import React from "react";
+import React, { useEffect } from "react";
 import AsideBarDocs from "../../../components/asidebar-docs";
+import { usePathname } from "next/navigation";
 
-const layout = ({ children }: { children: React.ReactNode }) => {
+const Layout = ({ children }: { children: React.ReactNode }) => {
+  // cheap fix !!!
+  //  most prob getting occured due to sticky navbar
+  const pathname = usePathname();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
   return (
     <div className="container  md:grid md:grid-cols-[220px_minmax(0,1fr)] md:gap-6 lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-10">
       <aside className="md:block hidden">
@@ -13,4 +22,4 @@ const layout = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-export default layout;
+export default Layout;

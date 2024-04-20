@@ -20,6 +20,7 @@ export async function getPageBySlug(slug: string): Promise<{
     title: string;
     description: string;
     slug: string;
+    propertiesPath: string;
   };
   content: MDXRemoteSerializeResult<
     Record<string, unknown>,
@@ -29,6 +30,7 @@ export async function getPageBySlug(slug: string): Promise<{
   try {
     const filePath = path.join(contentDir, slug + ".mdx");
     const fileData = fs.readFileSync(filePath, "utf-8");
+
     const mdxContent = await serialize(fileData, {
       parseFrontmatter: true,
       mdxOptions: {
@@ -83,11 +85,11 @@ export async function getPageBySlug(slug: string): Promise<{
         ],
       } as any,
     });
-
     return {
       meta: {
         title: mdxContent.frontmatter.title as string,
         description: mdxContent.frontmatter.description as string,
+        propertiesPath: mdxContent.frontmatter.propertiesPath as string,
         slug: filePath,
       },
       content: mdxContent,

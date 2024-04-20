@@ -79,10 +79,11 @@ export function processAndReturnProperty(
     const res: PropertyTableRow[] = processor.processAndReturnTableData();
     return {
       name: title,
-      uniqueId: uniqueId + "." + getCustomSlug(title),
+      uniqueId: getCustomSlug(title),
       completeUrl: currentUrl + "#" + getCustomSlug(title),
       prevUrl: prevUrl,
       description: description,
+
       table: res,
     };
   } else {
@@ -95,7 +96,7 @@ export function processAndReturnProperty(
     const joinedText = textArray.join(" | ");
     return {
       name: title,
-      uniqueId: uniqueId + "." + getCustomSlug(title),
+      uniqueId: getCustomSlug(title),
       completeUrl: currentUrl + "#" + getCustomSlug(title),
       prevUrl: prevUrl,
       description: description,

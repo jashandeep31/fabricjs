@@ -8,7 +8,7 @@ import { cn } from "../lib/utils";
 const Navbar = () => {
   const pathname = usePathname();
   return (
-    <div className="bg-background border-b  ">
+    <div className="bg-background border-b sticky  ">
       <div className="container py-3 flex justify-between items-center">
         <div className="flex items-center gap-8">
           <h1 className="text-lg font-bold">Fabric JS</h1>

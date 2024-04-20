@@ -8,8 +8,8 @@ const PORT = process.env.PORT || 8000;
 async function main() {
   const parameters = {
     url: "http://fabricjs.com/docs/fabric.Rect.html",
-    dist: "html/objects",
-    currentUrl: "html/objects/rectangle",
+    dist: "docs/html/objects",
+    currentUrl: "/docs/html/objects/rectangle",
     name: "React",
     uniqueId: "HTML.Objects.React",
     forceRefresh: false,
