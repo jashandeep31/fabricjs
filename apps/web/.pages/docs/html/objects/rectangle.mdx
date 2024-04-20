@@ -1,0 +1,77 @@
+---
+title: Rectangle
+description: Rectangle Object in Fabric js
+properties: true
+---
+
+## What is Rectangle (Rect)\*\*?
+
+A rectangle? It's just a square that's been stretched out sideways, like a balloon animal on a diet. Still confused check the output of the given code.
+
+<Callout title="Please note">
+  Its not `fabric.Rectangle` it's `fabric.Rect`. So make sure to use correct one
+  to avoid errors.
+</Callout>
+
+<br />
+
+### Adding first rectangle
+
+```html title="index.html" output=true {2-19}
+<body>
+  <canvas
+    id="c"
+    width="200"
+    style="border: 1px solid black"
+    height="200"
+  ></canvas>
+  <script src="https://cdn.jsdelivr.net/npm/fabric@latest/dist/fabric.js"></script>
+  <script>
+    let canvas = new fabric.Canvas("c");
+    let rect = new fabric.Rect({
+      left: 0,
+      top: 0,
+      fill: "red",
+      width: 100,
+      height: 150,
+    });
+    canvas.add(rect);
+  </script>
+</body>
+```
+
+### Rotating a rectangle
+
+Oh! so our rectangle is ready. Now lets play a little more with it. Let's just **Rotate** it a little bit.
+
+```html title="index.html" output=true  {17}
+<body>
+  <canvas
+    id="c"
+    width="200"
+    style="border: 1px solid black"
+    height="200"
+  ></canvas>
+  <script src="https://cdn.jsdelivr.net/npm/fabric@latest/dist/fabric.js"></script>
+  <script>
+    let canvas = new fabric.Canvas("c");
+    let rect = new fabric.Rect({
+      left: 50,
+      top: 50,
+      fill: "red",
+      width: 75,
+      height: 50,
+      angle: 45,
+    });
+    canvas.add(rect);
+  </script>
+</body>
+```
+
+<Callout title="Getting properties">
+  Using method `rect.get()` will also help you to get the current of value of
+  that property. like using `rect.get('angle')` will give us 45 from the above
+  example.
+</Callout>
+
+<br />

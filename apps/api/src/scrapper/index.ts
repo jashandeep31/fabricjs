@@ -63,11 +63,11 @@ export const scrapper = async (
   // );
 
   await db
-    .$transaction(async (tx) => {
+    .$transaction(async (tx: any) => {
       const processedData =
         await propertiesListToDatabaseClass.processAndAddData(tx);
     })
-    .catch((error) => {
+    .catch((error: any) => {
       console.log(error);
     });
 };

@@ -11,7 +11,7 @@ const REHYPE_THEME_OPTIONS = {
   keepBackground: false,
 };
 
-const contentDir = path.join(process.cwd(), "pages/");
+const contentDir = path.join(process.cwd(), ".pages/");
 
 export async function getPageBySlug(slug: string): Promise<{
   meta: {
