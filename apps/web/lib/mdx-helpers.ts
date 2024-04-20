@@ -20,7 +20,7 @@ export async function getPageBySlug(slug: string): Promise<{
     title: string;
     description: string;
     slug: string;
-    propertiesPath: string;
+    properties: boolean;
   };
   content: MDXRemoteSerializeResult<
     Record<string, unknown>,
@@ -89,7 +89,7 @@ export async function getPageBySlug(slug: string): Promise<{
       meta: {
         title: mdxContent.frontmatter.title as string,
         description: mdxContent.frontmatter.description as string,
-        propertiesPath: mdxContent.frontmatter.propertiesPath as string,
+        properties: mdxContent.frontmatter.properties as boolean,
         slug: filePath,
       },
       content: mdxContent,

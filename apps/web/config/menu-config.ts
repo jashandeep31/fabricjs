@@ -27,8 +27,8 @@ export const htmlDocsLinks: {
         path: "/docs/html/objects/rectangle",
       },
       {
-        label: "Element",
-        path: "/docs/html/element",
+        label: "Circle",
+        path: "/docs/html/objects/circle",
       },
     ],
   },

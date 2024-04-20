@@ -75,7 +75,10 @@ const components = (components: MDXComponents) => {
       ...props
     }: React.HTMLAttributes<HTMLParagraphElement>) => (
       <p
-        className={cn("leading-7 [&:not(:first-child)]:mt-6", className)}
+        className={cn(
+          "leading-7 [&:not(:first-child)]:mt-2 text-muted-foreground",
+          className
+        )}
         {...props}
       />
     ),

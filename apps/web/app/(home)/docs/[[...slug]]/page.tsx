@@ -2,24 +2,19 @@ import React from "react";
 import { getPageBySlug } from "../../../../lib/mdx-helpers";
 import Mdx from "../../../../components/mdx-components";
 import { getProperties } from "@/lib/get-properties";
-import Link from "next/link";
-import { ArrowDownRight, ArrowUpRight } from "lucide-react";
 import PropertyCard from "@/components/property-card";
 
 const page = async ({ params }: { params: { slug: string[] } }) => {
-  let completeSlug = params.slug.join("/");
+  let completeSlug = "/docs/" + params.slug.join("/");
   if (completeSlug.endsWith("html")) {
     completeSlug = completeSlug + "/index";
   }
   // adding docs as initial to target the docs folder in the pages directory
-  const data = await getPageBySlug("/docs/" + completeSlug);
+  const data = await getPageBySlug(completeSlug);
   if (!data) {
     return <div>Page not found</div>;
   }
-  const properties = await getProperties(
-    data.meta.propertiesPath,
-    "docs/" + completeSlug
-  );
+  const properties = await getProperties(data.meta.properties, completeSlug);
 
   return (
     <div className="md:mt-12 mt-6">

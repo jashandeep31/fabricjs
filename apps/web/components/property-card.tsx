@@ -47,7 +47,7 @@ const PropertyCard = ({ property }: any) => {
     <div className="mt-6 scroll-m-20" id={property.uniqueId}>
       <h3 className="font-heading mt-8 scroll-m-20 text-xl font-semibold tracking-tight">
         <Link
-          className="flex items-center gap-1 hover:underline duration-300 "
+          className="inline-flex items-center gap-1 hover:underline duration-300 "
           href={property.currentUrl}
         >
           <ArrowDownRight size={16} />

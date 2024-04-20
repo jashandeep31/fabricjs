@@ -1,0 +1,67 @@
+---
+title: Circle
+description: Using Cirlce object in Fabric JS
+properties: true
+---
+
+## Getting Started
+
+Circle is the another object like a rectangle that we had seen in the prev docs. Let's learn more about it.
+
+### Adding a basic Circle
+
+```html title="index.html" output=true
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <canvas
+      id="c"
+      width="200"
+      style="border: 1px solid black"
+      height="200"
+    ></canvas>
+    <script src="https://cdn.jsdelivr.net/npm/fabric@latest/dist/fabric.js"></script>
+    <script>
+      // adding circle
+      var canvas = new fabric.Canvas("c");
+      var circle = new fabric.Circle({
+        radius: 20,
+        fill: "green",
+        left: 0,
+        top: 0,
+      });
+      canvas.add(circle);
+    </script>
+  </body>
+</html>
+```
+
+### Updating the style
+
+```html title="index.html" output=false
+<script>
+  // adding circle
+  var canvas = new fabric.Canvas("c");
+  var circle = new fabric.Circle({
+    radius: 20,
+    fill: "green",
+    left: 0,
+    top: 0,
+  });
+  canvas.add(circle);
+  // changin radius
+  circle.set({ radius: 50 });
+  canvas.renderAll();
+</script>
+```
+
+<Callout title="Get property value">
+  Using method `circle.get()` will also help you to get the current of value of
+  that property
+</Callout>

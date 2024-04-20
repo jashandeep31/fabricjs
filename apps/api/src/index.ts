@@ -6,12 +6,20 @@ import { generateAllFile } from "./generateStaticFiles";
 const PORT = process.env.PORT || 8000;
 
 async function main() {
+  // const parameters = {
+  //   url: "http://fabricjs.com/docs/fabric.Rect.html",
+  //   dist: "docs/html/objects",
+  //   currentUrl: "/docs/html/objects/rectangle",
+  //   name: "React",
+  //   uniqueId: "HTML.Objects.React",
+  //   forceRefresh: false,
+  // };
   const parameters = {
-    url: "http://fabricjs.com/docs/fabric.Rect.html",
+    url: "http://fabricjs.com/docs/fabric.Circle.html",
     dist: "docs/html/objects",
-    currentUrl: "/docs/html/objects/rectangle",
-    name: "React",
-    uniqueId: "HTML.Objects.React",
+    currentUrl: "/docs/html/objects/circle",
+    name: "Circle",
+    uniqueId: "HTML.Objects.Circle",
     forceRefresh: false,
   };
   // const parameters = {
