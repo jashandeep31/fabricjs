@@ -13,8 +13,6 @@ const page = async ({ params }: { params: { slug: string[] } }) => {
     return <div>Page not found</div>;
   }
 
-  await new Promise((resolve) => setTimeout(resolve, 1000));
-
   return (
     <div className="md:mt-12 mt-6">
       <div className="space-y-2">
