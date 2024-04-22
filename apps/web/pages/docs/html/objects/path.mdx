@@ -1,0 +1,76 @@
+---
+title: Paths
+description: Using Paths in Fabric JS
+properties: true
+---
+
+## Introduction to paths
+
+We've looked at simple shapes, then images. What about even more complex, rich shapes and content?
+Meet the power couple — Path and Groups.
+
+### Ading normal shape
+
+```html title="index.html" output=true
+<canvas
+  id="c"
+  width="200"
+  style="border: 1px solid black"
+  height="200"
+></canvas>
+<script src="https://cdn.jsdelivr.net/npm/fabric@latest/dist/fabric.js"></script>
+<script>
+  var canvas = new fabric.Canvas("c");
+  var path = new fabric.Path("M 0 0 L 200 100 L 170 200 z");
+  path.set({ left: 120, top: 120 });
+  canvas.add(path);
+</script>
+```
+
+---
+
+Adding border and color
+
+```html title="index.html" output=true
+<canvas
+  id="c"
+  width="200"
+  style="border: 1px solid black"
+  height="200"
+></canvas>
+<script src="https://cdn.jsdelivr.net/npm/fabric@latest/dist/fabric.js"></script>
+<script>
+  var canvas = new fabric.Canvas("c");
+
+  var path = new fabric.Path("M 0 0 L 100 100 L 200 100 z");
+  path.set({ fill: "red", stroke: "green", opacity: 0.5 });
+  canvas.add(path);
+</script>
+```
+
+---
+
+Taking little advance
+
+```html title="index.html" output=true
+<canvas
+  id="c"
+  width="200"
+  style="border: 1px solid black"
+  height="200"
+></canvas>
+<script src="https://cdn.jsdelivr.net/npm/fabric@latest/dist/fabric.js"></script>
+<script>
+  var canvas = new fabric.Canvas("c");
+  var path = new fabric.Path(
+    "M121.32,0L44.58,0C36.67,0,29.5,3.22,24.31,8.41\
+c-5.19,5.19-8.41,12.37-8.41,20.28c0,15.82,12.87,28.69,28.69,28.69c0,0,4.4,\
+0,7.48,0C36.66,72.78,8.4,101.04,8.4,101.04C2.98,106.45,0,113.66,0,121.32\
+c0,7.66,2.98,14.87,8.4,20.29l0,0c5.42,5.42,12.62,8.4,20.28,8.4c7.66,0,14.87\
+-2.98,20.29-8.4c0,0,28.26-28.25,43.66-43.66c0,3.08,0,7.48,0,7.48c0,15.82,\
+12.87,28.69,28.69,28.69c7.66,0,14.87-2.99,20.29-8.4c5.42-5.42,8.4-12.62,8.4\
+-20.28l0-76.74c0-7.66-2.98-14.87-8.4-20.29C136.19,2.98,128.98,0,121.32,0z"
+  );
+  canvas.add(path);
+</script>
+```
