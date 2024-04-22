@@ -30,6 +30,10 @@ export const htmlDocsLinks: {
         label: "Circle",
         path: "/docs/html/objects/circle",
       },
+      {
+        label: "Image",
+        path: "/docs/html/objects/image",
+      },
     ],
   },
 ] as const;

@@ -1,0 +1,71 @@
+---
+title: Image
+description: Using Image in Fabric JS
+properties: true
+---
+
+Adding rectangles and circles on canvas is fun but why don't we play with some images? As you would imagine by now, Fabric makes this easy. Let's instantiate fabric.Image object and add it to canvas:
+
+`Adding by image element`
+
+```html title="index.html" output=true
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <canvas
+      id="c"
+      width="200"
+      style="border: 1px solid black"
+      height="200"
+    ></canvas>
+
+    <!-- display is none of image to remove real image  -->
+    <img
+      style="display: none"
+      src="http://fabricjs.com/article_assets/9.png"
+      alt=""
+    />
+    <script src="https://cdn.jsdelivr.net/npm/fabric@latest/dist/fabric.js"></script>
+    <script>
+      var canvas = new fabric.Canvas("c");
+      var imgElement = document.querySelector("img");
+      var imgInstance = new fabric.Image(imgElement, {
+        left: 0,
+        top: 0,
+        scaleX: 0.5,
+        scaleY: 0.5,
+        opacity: 1,
+      });
+      canvas.add(imgInstance);
+    </script>
+  </body>
+</html>
+```
+
+`Adding by image by direct link`
+
+```html title="index.html" output=true
+<canvas
+  id="c"
+  width="200"
+  style="border: 1px solid black"
+  height="200"
+></canvas>
+<script src="https://cdn.jsdelivr.net/npm/fabric@latest/dist/fabric.js"></script>
+<script>
+  var canvas = new fabric.Canvas("c");
+  // image from url
+  fabric.Image.fromURL(
+    "http://fabricjs.com/article_assets/9.png",
+    function (oImg) {
+      canvas.add(oImg);
+    }
+  );
+</script>
+```

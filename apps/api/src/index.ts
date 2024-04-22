@@ -15,11 +15,11 @@ async function main() {
   //   forceRefresh: false,
   // };
   const parameters = {
-    url: "http://fabricjs.com/docs/fabric.Circle.html",
+    url: "http://fabricjs.com/docs/fabric.Image.html",
     dist: "docs/html/objects",
-    currentUrl: "/docs/html/objects/circle",
-    name: "Circle",
-    uniqueId: "HTML.Objects.Circle",
+    currentUrl: "/docs/html/objects/image",
+    name: "Image",
+    uniqueId: "HTML.Objects.Image",
     forceRefresh: false,
   };
   // const parameters = {
