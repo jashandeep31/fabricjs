@@ -23,6 +23,10 @@ export const htmlDocsLinks: {
     title: "Objects",
     links: [
       {
+        label: "Intro to Objects",
+        path: "/docs/html/objects/intro",
+      },
+      {
         label: "Rectangle",
         path: "/docs/html/objects/rectangle",
       },

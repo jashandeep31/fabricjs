@@ -27,7 +27,7 @@ const MdxPreTagRenderer = ({
   return (
     <div className="  overflow-x-auto ">
       <div
-        className={`flex items-center ${
+        className={`flex items-end ${
           __output__ ? "justify-between" : "justify-end"
         }  mb-2`}
       >

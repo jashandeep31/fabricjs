@@ -16,7 +16,7 @@ const Navbar = () => {
             {navbarDesktopLinks.map((item, index) => (
               <nav key={index}>
                 <Link
-                  href={"/"}
+                  href={item.path}
                   className={cn(
                     `text-sm  font-medium ${pathname === item.path ? "text-foreground" : "text-foreground/60 hover:text-foreground/80"} `
                   )}

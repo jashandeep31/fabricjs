@@ -4,11 +4,19 @@ export const navbarDesktopLinks = [
     path: "/",
   },
   {
-    label: "About",
-    path: "/about",
+    label: "HTML Docs",
+    path: "/docs/html",
   },
   {
-    label: "Contact",
+    label: "React Docs (soon)",
     path: "/contact",
+  },
+  {
+    label: "Legacy Docs",
+    path: "http://fabricjs.com/",
+  },
+  {
+    label: "Examples",
+    path: "http://fabricjs.com/demos/",
   },
 ] as const;

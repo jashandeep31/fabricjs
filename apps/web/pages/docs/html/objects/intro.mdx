@@ -1,0 +1,45 @@
+---
+title: Objects in FabricJS
+description: Fundamental entities representing graphical elements on the canvas
+---
+
+## what are objects?
+
+In Fabric.js, objects are fundamental entities representing graphical elements on the canvas. These objects can be various shapes (like rectangles, circles, polygons), text, images, or even complex groups of other objects. Each object has properties defining its appearance, such as color, size, position, and rotation. Fabric.js provides a rich set of methods and properties to manipulate these objects dynamically, including resizing, moving, rotating, styling, and applying transformations. Objects can also respond to user interactions like clicks and drags, making Fabric.js suitable for building interactive applications and games with HTML5 canvas.
+
+### Types of objecs in fabric js
+
+- [fabric.Rect](/docs/html/objects/rectangle)
+- [fabric.Circle](/docs/html/objects/circle)
+- [fabric.Triangle](/docs/html/objects/triangle)
+- [fabric.Line](/docs/html/objects/line)
+- [fabric.Ellipse](/docs/html/objects/ellipse)
+- [fabric.Polygon](/docs/html/objects/polygon)
+- [fabric.Polyline](/docs/html/objects/polyline)
+
+### Creating a first object
+
+Let's create are first object rectangle using fabric js.
+
+```html title="index.html" output=true
+<body>
+  <canvas
+    id="c"
+    width="200"
+    style="border: 1px solid black"
+    height="200"
+  ></canvas>
+  <script src="https://cdn.jsdelivr.net/npm/fabric@latest/dist/fabric.js"></script>
+  <script>
+    var canvas = new fabric.Canvas("c");
+    var rect = new fabric.Rect({
+      left: 0,
+      top: 0,
+      fill: "red",
+      width: 50,
+      height: 50,
+    });
+    canvas.add(rect);
+  </script>
+</body>
+```
