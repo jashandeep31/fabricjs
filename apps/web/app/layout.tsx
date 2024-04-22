@@ -1,6 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import LayoutClient from "./layout-clients";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +17,9 @@ export default function RootLayout({
 }): JSX.Element {
   return (
     <html lang="en" className="">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <LayoutClient>{children}</LayoutClient>
+      </body>
     </html>
   );
 }
