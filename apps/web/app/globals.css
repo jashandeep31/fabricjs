@@ -74,3 +74,16 @@
     @apply bg-background text-foreground;
   }
 }
+
+.navbar-mobile-animation {
+  animation: navbar-mobile-animation 0.3s ease-in-out forwards;
+}
+
+@keyframes navbar-mobile-animation {
+  0% {
+    transform: translateX(+100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
