@@ -29,11 +29,11 @@ const SearchBox = ({
 
   return (
     <div
-      className={`bg-black/80 h-screen w-screen fixed  top-0 left-0 z-20  items-center justify-center duration-300 ${searchBoxStatus ? "flex" : "hidden"}`}
+      className={`bg-black/80 h-screen w-screen fixed top-0 left-0 z-20  items-center justify-center duration-300 ${searchBoxStatus ? "flex" : "hidden"}`}
     >
       <div
         ref={ref}
-        className={`rounded-md   md:w-1/3 border bg-background max-h-[50%] relative flex flex-col ${searchBoxStatus ? "searchbox" : ""}`}
+        className={`rounded-md   md:w-1/3 border bg-background  h-[70%]  md:max-h-[50%] relative flex flex-col ${searchBoxStatus ? "searchbox" : ""}`}
       >
         <div className="flex items-center justify-between gap-2 border-b p-3 ">
           <Search size={18} className="text-muted-foreground" />

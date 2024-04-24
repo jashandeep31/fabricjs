@@ -19,10 +19,7 @@ const Navbar = () => {
         <div className="flex items-center gap-8">
           <Link href="/">
             <h1 className="text-lg font-bold flex items-center gap-1">
-              Fabric JS{" "}
-              <span className="text-xs font-light border rounded-full  px-1 border-foreground">
-                Alpha
-              </span>{" "}
+              Fabric JS <span className="text-[10px] font-light ">Alpha</span>{" "}
             </h1>
           </Link>
 
