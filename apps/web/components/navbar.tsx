@@ -4,8 +4,9 @@ import React, { useState } from "react";
 import { navbarDesktopLinks } from "../config/navbar.config";
 import { usePathname } from "next/navigation";
 import { cn } from "../lib/utils";
-import { Menu, X } from "lucide-react";
+import { Github, Menu, X } from "lucide-react";
 import NavbarMobileMenu from "./navbar-mobile-menu";
+import SearchBoxMenuButton from "./search-box-menu-button";
 
 const Navbar = () => {
   const pathname = usePathname();
@@ -16,7 +17,15 @@ const Navbar = () => {
     <div className="bg-background border-b sticky  ">
       <div className="container py-3 flex justify-between items-center">
         <div className="flex items-center gap-8">
-          <h1 className="text-lg font-bold">Fabric JS</h1>
+          <Link href="/">
+            <h1 className="text-lg font-bold flex items-center gap-1">
+              Fabric JS{" "}
+              <span className="text-xs font-light border rounded-full  px-1 border-foreground">
+                Alpha
+              </span>{" "}
+            </h1>
+          </Link>
+
           <div className="hidden md:flex items-center gap-4">
             {navbarDesktopLinks.map((item, index) => (
               <nav key={index}>
@@ -33,7 +42,12 @@ const Navbar = () => {
           </div>
         </div>
         <div className="flex items-center gap-2">
-          <div>Github</div>
+          <SearchBoxMenuButton />
+          <div>
+            <Link href={"/"}>
+              <Github size={20} />
+            </Link>
+          </div>
           <button
             onClick={() => setMobileMenuState(true)}
             className="block md:hidden"

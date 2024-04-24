@@ -5,6 +5,7 @@ const LayoutClient = ({ children }: { children: React.ReactNode }) => {
   return (
     <div>
       {children}
+
       <ProgressBar
         height="2px"
         color="#000000"
