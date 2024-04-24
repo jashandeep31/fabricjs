@@ -15,7 +15,7 @@ const Navbar = () => {
 
   return (
     <div className="bg-background border-b sticky  ">
-      <div className="container py-3 flex justify-between items-center">
+      <div className="container md:py-3 py-4 flex justify-between items-center">
         <div className="flex items-center gap-8">
           <Link href="/">
             <h1 className="text-lg font-bold flex items-center gap-1">
