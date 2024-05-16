@@ -2,7 +2,9 @@
 import { useClickAway, useLockBodyScroll } from "@uidotdev/usehooks";
 import { Search, StickyNote, X } from "lucide-react";
 import Link from "next/link";
+import Flexsearch from "flexsearch";
 import React, { useEffect } from "react";
+import { search_queries } from "@/search_queries";
 
 const SearchBox = ({
   searchBoxStatus,
@@ -11,10 +13,10 @@ const SearchBox = ({
   searchBoxStatus: boolean;
   setSearchBoxStatus: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
+  // handling the click away and the close method using the `escape` key
   const ref = useClickAway<HTMLDivElement>(() => {
     setSearchBoxStatus(false);
   });
-
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
       if (e.key === "Escape") setSearchBoxStatus(false);
@@ -24,8 +26,18 @@ const SearchBox = ({
       window.removeEventListener("keydown", handler);
     };
   }, []);
-
   useLockBodyScroll();
+
+  // search fucntionality code
+
+  // const searchIndex = new Index();
+  const searchIndex = new Flexsearch.Index();
+  search_queries.forEach((item, index) => {
+    searchIndex.add(index, item.name);
+  });
+  const result = searchIndex.search("Rectangle");
+  console.log("this");
+  console.log(result);
 
   return (
     <div
