@@ -2,7 +2,7 @@
 import { useClickAway, useLockBodyScroll } from "@uidotdev/usehooks";
 import { Search, StickyNote, X } from "lucide-react";
 import Link from "next/link";
-import React, { use, useEffect } from "react";
+import React, { useEffect } from "react";
 
 const SearchBox = ({
   searchBoxStatus,

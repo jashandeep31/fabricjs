@@ -15,6 +15,7 @@ const REHYPE_THEME_OPTIONS = {
 const PAGES_DIR = path.join(process.cwd(), "/pages");
 const PROPERTIES_DIR = path.join(process.cwd(), "../..", "data");
 const FINAL_PAGES_DIR = path.join(process.cwd(), ".pages");
+const QUERIES_FILE = path.join(process.cwd(), "search_queries.ts");
 
 function checkAndCreateDir(dir) {
   if (!fs.existsSync(dir)) {
@@ -24,6 +25,8 @@ function checkAndCreateDir(dir) {
 
 async function verifyAndMoveMdxFiles(dir) {
   const files = fs.readdirSync(dir);
+  const TITTLES_ARRAY = [];
+
   for (const file of files) {
     const stats = fs.statSync(path.join(dir, file));
     if (stats.isDirectory()) {
@@ -104,6 +107,12 @@ async function verifyAndMoveMdxFiles(dir) {
         console.log("Description is required");
         return;
       }
+
+      TITTLES_ARRAY.push({ name: meta.title });
+      fs.writeFileSync(
+        QUERIES_FILE,
+        `export const search_queries:{name:string}[] = ${JSON.stringify(TITTLES_ARRAY)};`
+      );
 
       if (meta.properties === true) {
         const propertiesPath = path.join(

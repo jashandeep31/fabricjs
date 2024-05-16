@@ -1,0 +1,1 @@
+export const search_queries:{name:string}[] = [{"name":"Circle"},{"name":"Image"},{"name":"Objects in FabricJS"},{"name":"Paths"},{"name":"Rectangle"}];
