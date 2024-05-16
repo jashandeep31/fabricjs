@@ -23,9 +23,9 @@ function checkAndCreateDir(dir) {
   }
 }
 
+const TITTLES_ARRAY = [];
 async function verifyAndMoveMdxFiles(dir) {
   const files = fs.readdirSync(dir);
-  const TITTLES_ARRAY = [];
 
   for (const file of files) {
     const stats = fs.statSync(path.join(dir, file));
@@ -121,7 +121,7 @@ async function verifyAndMoveMdxFiles(dir) {
             ".json"
           )
         );
-        console.log(propertiesPath.replace(PROPERTIES_DIR, FINAL_PAGES_DIR));
+        // console.log(propertiesPath.replace(PROPERTIES_DIR, FINAL_PAGES_DIR));
         if (!fs.existsSync(propertiesPath)) {
           console.log("Properties file not found");
         } else {

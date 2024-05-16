@@ -1,10 +1,24 @@
 "use client";
-import { useClickAway, useLockBodyScroll } from "@uidotdev/usehooks";
+import {
+  useClickAway,
+  useDebounce,
+  useLockBodyScroll,
+} from "@uidotdev/usehooks";
 import { Search, StickyNote, X } from "lucide-react";
 import Link from "next/link";
 import Flexsearch from "flexsearch";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { search_queries } from "@/search_queries";
+
+// Move the search index creation outside the component
+const searchIndex = new Flexsearch.Index({
+  tokenize: "full",
+});
+
+// Add items to the search index
+search_queries.forEach((item, index) => {
+  searchIndex.add(index, item.name);
+});
 
 const SearchBox = ({
   searchBoxStatus,
@@ -29,15 +43,20 @@ const SearchBox = ({
   useLockBodyScroll();
 
   // search fucntionality code
+  const [searchTerm, setSearchTerm] = useState("");
+  const [filteredSearchQueries, setFilteredSearchQueries] = useState(
+    search_queries.slice(0, 6)
+  );
+  const debounceSearch = useDebounce(searchTerm, 300);
 
-  // const searchIndex = new Index();
-  const searchIndex = new Flexsearch.Index();
-  search_queries.forEach((item, index) => {
-    searchIndex.add(index, item.name);
-  });
-  const result = searchIndex.search("Rectangle");
-  console.log("this");
-  console.log(result);
+  useEffect(() => {
+    if (debounceSearch) {
+      const resultsArray = searchIndex.search(searchTerm);
+      setFilteredSearchQueries(
+        search_queries.filter((item, index) => resultsArray.includes(index))
+      );
+    }
+  }, [debounceSearch]);
 
   return (
     <div
@@ -45,11 +64,16 @@ const SearchBox = ({
     >
       <div
         ref={ref}
-        className={`rounded-md   md:w-1/3 border bg-background  h-[70%]  md:max-h-[50%] relative flex flex-col ${searchBoxStatus ? "searchbox" : ""}`}
+        className={`rounded-md   md:w-2/3  lg:w-1/3 border bg-background  h-[70%]  md:max-h-[50%] relative flex flex-col ${searchBoxStatus ? "searchbox" : ""}`}
       >
         <div className="flex items-center justify-between gap-2 border-b p-3 ">
           <Search size={18} className="text-muted-foreground" />
           <input
+            onChange={(e) =>
+              e.target.value === ""
+                ? setFilteredSearchQueries(search_queries.slice(0, 6))
+                : setSearchTerm(e.target.value)
+            }
             autoFocus={true}
             className="w-full bg-transparent border-none  py-1 focus:outline-none px-1"
           />
@@ -61,7 +85,7 @@ const SearchBox = ({
           <p className="px-3 text-sm text-medium text-muted-foreground mb-2">
             Results
           </p>
-          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item, index) => (
+          {filteredSearchQueries.map((item, index) => (
             <Link
               href="/"
               className="card flex p-3  items-center gap-3  hover:bg-foreground/10 duration-300 rounded "
@@ -71,7 +95,7 @@ const SearchBox = ({
                 <StickyNote size={20} className="text-muted-foreground" />
               </div>
               <div className="text-area">
-                <h2>Rectangle</h2>
+                <h2>{item.name}</h2>
                 <p className="text-xs  text-muted-foreground">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit
                   voluptate tempora provident quam maiores fuga id corrupti
