@@ -5,10 +5,10 @@ import {
   useLockBodyScroll,
 } from "@uidotdev/usehooks";
 import { Search, StickyNote, X } from "lucide-react";
-import Link from "next/link";
 import Flexsearch from "flexsearch";
 import React, { useEffect, useState } from "react";
 import { search_queries } from "@/search_queries";
+import { useRouter } from "next/navigation";
 
 // Move the search index creation outside the component
 const searchIndex = new Flexsearch.Index({
@@ -43,6 +43,7 @@ const SearchBox = ({
   useLockBodyScroll();
 
   // search fucntionality code
+  const router = useRouter();
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredSearchQueries, setFilteredSearchQueries] = useState(
     search_queries.slice(0, 6)
@@ -64,7 +65,7 @@ const SearchBox = ({
     >
       <div
         ref={ref}
-        className={`rounded-md   md:w-2/3  lg:w-1/3 border bg-background  h-[70%]  md:max-h-[50%] relative flex flex-col ${searchBoxStatus ? "searchbox" : ""}`}
+        className={`rounded-md w-screen  md:w-2/3  lg:w-1/3 border bg-background  h-[70%]  md:max-h-[50%] relative flex flex-col ${searchBoxStatus ? "searchbox" : ""}`}
       >
         <div className="flex items-center justify-between gap-2 border-b p-3 ">
           <Search size={18} className="text-muted-foreground" />
@@ -77,7 +78,10 @@ const SearchBox = ({
             autoFocus={true}
             className="w-full bg-transparent border-none  py-1 focus:outline-none px-1"
           />
-          <button onClick={() => setSearchBoxStatus(false)}>
+          <button
+            onClick={() => setSearchBoxStatus(false)}
+            className="hover:border-slate-500 rounded hover:bg-slate-50 duration-300 border border-transparent"
+          >
             <X size={18} className="text-muted-foreground" />
           </button>
         </div>
@@ -86,23 +90,22 @@ const SearchBox = ({
             Results
           </p>
           {filteredSearchQueries.map((item, index) => (
-            <Link
-              href="/"
-              className="card flex p-3  items-center gap-3  hover:bg-foreground/10 duration-300 rounded "
+            <button
+              onClick={() => {
+                router.push(item.link);
+                setSearchBoxStatus(false);
+              }}
+              className="card flex p-3  items-center gap-3  hover:bg-foreground/10 duration-300 rounded  w-full "
               key={index}
             >
-              <div className="   h-14  flex items-center">
+              <div className="h-14  flex items-center">
                 <StickyNote size={20} className="text-muted-foreground" />
               </div>
-              <div className="text-area">
-                <h2>{item.name}</h2>
-                <p className="text-xs  text-muted-foreground">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit
-                  voluptate tempora provident quam maiores fuga id corrupti
-                  illum, facilis explicabo. Cum, et ea? Non, explicabo?
-                </p>
+              <div className="text-area w-full text-start">
+                <h2>{item.name} </h2>
+                <p className="text-xs  text-muted-foreground">{item.link}</p>
               </div>
-            </Link>
+            </button>
           ))}
         </div>
       </div>

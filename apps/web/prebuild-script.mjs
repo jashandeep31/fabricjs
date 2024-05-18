@@ -108,12 +108,6 @@ async function verifyAndMoveMdxFiles(dir) {
         return;
       }
 
-      TITTLES_ARRAY.push({ name: meta.title });
-      fs.writeFileSync(
-        QUERIES_FILE,
-        `export const search_queries:{name:string}[] = ${JSON.stringify(TITTLES_ARRAY)};`
-      );
-
       if (meta.properties === true) {
         const propertiesPath = path.join(
           RAW_FILE_PATH.replace(PAGES_DIR, PROPERTIES_DIR).replace(
@@ -139,6 +133,14 @@ async function verifyAndMoveMdxFiles(dir) {
       }
       const FINAL_PATH = path.join(
         RAW_FILE_PATH.replace(PAGES_DIR, FINAL_PAGES_DIR)
+      );
+      TITTLES_ARRAY.push({
+        name: meta.title,
+        link: FINAL_PATH.replace(FINAL_PAGES_DIR, "").replace(".mdx", ""),
+      });
+      fs.writeFileSync(
+        QUERIES_FILE,
+        `export const search_queries:{name:string; link:string}[] = ${JSON.stringify(TITTLES_ARRAY)};`
       );
       const FINAL_DIR = path.join(FINAL_PATH, "..");
       checkAndCreateDir(FINAL_DIR);
