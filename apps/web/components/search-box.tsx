@@ -54,6 +54,10 @@ const SearchBox = ({
           prev === 0 ? filteredSearchQueries.length - 1 : prev - 1
         );
       }
+
+      if (filteredSearchQueries.length < highlightedIndex) {
+        setHighlightedIndex(0);
+      }
     },
     [filteredSearchQueries.length, setSearchBoxStatus]
   );
