@@ -6,7 +6,7 @@ import {
 } from "@uidotdev/usehooks";
 import { Search, StickyNote, X } from "lucide-react";
 import Flexsearch from "flexsearch";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { search_queries } from "@/search_queries";
 import { useRouter } from "next/navigation";
 
@@ -39,16 +39,31 @@ const SearchBox = ({
   const ref = useClickAway<HTMLDivElement>(() => {
     setSearchBoxStatus(false);
   });
-  useEffect(() => {
-    const handler = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setSearchBoxStatus(false);
-    };
-    window.addEventListener("keydown", handler);
-    return () => {
-      window.removeEventListener("keydown", handler);
-    };
-  }, []);
   useLockBodyScroll();
+
+  const handleKeyDown = useCallback(
+    (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setSearchBoxStatus(false);
+      } else if (e.key === "ArrowDown") {
+        setHighlightedIndex((prev) =>
+          prev === filteredSearchQueries.length - 1 ? 0 : prev + 1
+        );
+      } else if (e.key === "ArrowUp") {
+        setHighlightedIndex((prev) =>
+          prev === 0 ? filteredSearchQueries.length - 1 : prev - 1
+        );
+      }
+    },
+    [filteredSearchQueries.length, setSearchBoxStatus]
+  );
+
+  useEffect(() => {
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [handleKeyDown]);
 
   // search fucntionality code
   useEffect(() => {
@@ -59,25 +74,6 @@ const SearchBox = ({
       );
     }
   }, [debounceSearch]);
-
-  useEffect(() => {
-    const handler = (e: KeyboardEvent) => {
-      if (e.key === "ArrowDown") {
-        setHighlightedIndex((prev) =>
-          prev === filteredSearchQueries.length - 1 ? 0 : prev + 1
-        );
-      }
-      if (e.key === "ArrowUp") {
-        setHighlightedIndex((prev) =>
-          prev === 0 ? filteredSearchQueries.length - 1 : prev - 1
-        );
-      }
-    };
-    window.addEventListener("keydown", handler);
-    return () => {
-      window.removeEventListener("keydown", handler);
-    };
-  }, [filteredSearchQueries]);
 
   return (
     <div
