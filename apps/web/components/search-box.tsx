@@ -27,6 +27,14 @@ const SearchBox = ({
   searchBoxStatus: boolean;
   setSearchBoxStatus: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
+  const [highlightedIndex, setHighlightedIndex] = useState(0);
+  const router = useRouter();
+  const [searchTerm, setSearchTerm] = useState("");
+  const [filteredSearchQueries, setFilteredSearchQueries] = useState(
+    search_queries.slice(0, 6)
+  );
+  const debounceSearch = useDebounce(searchTerm, 100);
+
   // handling the click away and the close method using the `escape` key
   const ref = useClickAway<HTMLDivElement>(() => {
     setSearchBoxStatus(false);
@@ -43,13 +51,6 @@ const SearchBox = ({
   useLockBodyScroll();
 
   // search fucntionality code
-  const router = useRouter();
-  const [searchTerm, setSearchTerm] = useState("");
-  const [filteredSearchQueries, setFilteredSearchQueries] = useState(
-    search_queries.slice(0, 6)
-  );
-  const debounceSearch = useDebounce(searchTerm, 300);
-
   useEffect(() => {
     if (debounceSearch) {
       const resultsArray = searchIndex.search(searchTerm);
@@ -58,6 +59,25 @@ const SearchBox = ({
       );
     }
   }, [debounceSearch]);
+
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === "ArrowDown") {
+        setHighlightedIndex((prev) =>
+          prev === filteredSearchQueries.length - 1 ? 0 : prev + 1
+        );
+      }
+      if (e.key === "ArrowUp") {
+        setHighlightedIndex((prev) =>
+          prev === 0 ? filteredSearchQueries.length - 1 : prev - 1
+        );
+      }
+    };
+    window.addEventListener("keydown", handler);
+    return () => {
+      window.removeEventListener("keydown", handler);
+    };
+  }, [filteredSearchQueries]);
 
   return (
     <div
@@ -69,15 +89,25 @@ const SearchBox = ({
       >
         <div className="flex items-center justify-between gap-2 border-b p-3 ">
           <Search size={18} className="text-muted-foreground" />
-          <input
-            onChange={(e) =>
-              e.target.value === ""
-                ? setFilteredSearchQueries(search_queries.slice(0, 6))
-                : setSearchTerm(e.target.value)
-            }
-            autoFocus={true}
-            className="w-full bg-transparent border-none  py-1 focus:outline-none px-1"
-          />
+          <form
+            action=" "
+            onSubmit={(e) => {
+              e.preventDefault();
+              setSearchBoxStatus(false);
+              router.push(filteredSearchQueries[highlightedIndex]?.link || "/");
+            }}
+            className="flex-1"
+          >
+            <input
+              onChange={(e) =>
+                e.target.value === ""
+                  ? setFilteredSearchQueries(search_queries.slice(0, 6))
+                  : setSearchTerm(e.target.value)
+              }
+              autoFocus={true}
+              className="w-full bg-transparent border-none  py-1 focus:outline-none px-1"
+            />
+          </form>
           <button
             onClick={() => setSearchBoxStatus(false)}
             className="hover:border-slate-500 rounded hover:bg-slate-50 duration-300 border border-transparent"
@@ -95,7 +125,7 @@ const SearchBox = ({
                 router.push(item.link);
                 setSearchBoxStatus(false);
               }}
-              className="card flex p-3  items-center gap-3  hover:bg-foreground/10 duration-300 rounded  w-full "
+              className={`card flex p-3  items-center gap-3  ${highlightedIndex === index ? "bg-foreground/10" : "hover:bg-foreground/5"} duration-300 rounded  w-full `}
               key={index}
             >
               <div className="h-14  flex items-center">
