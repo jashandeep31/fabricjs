@@ -1,6 +1,7 @@
 import PropertyCard from "@/components/property-card";
 import { getProperties } from "@/lib/get-properties";
 import React from "react";
+import PropertiesRender from "./page.client";
 
 const properties = async ({ params }: { params: { slug: string[] } }) => {
   let completeSlug = "/docs/" + params.slug.join("/");
@@ -18,9 +19,10 @@ const properties = async ({ params }: { params: { slug: string[] } }) => {
           <h2 className="font-heading mt-12 scroll-m-20 border-b pb-2 text-2xl font-semibold tracking-tight first:mt-0">
             Properties
           </h2>
-          {properties.map((property, index) => (
+          <PropertiesRender properties={properties} />
+          {/* {properties.map((property, index) => (
             <PropertyCard property={property} key={index} />
-          ))}
+          ))} */}
         </div>
       ) : null}
     </div>
