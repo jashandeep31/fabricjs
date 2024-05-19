@@ -130,17 +130,25 @@ async function verifyAndMoveMdxFiles(dir) {
           propertiesData.forEach((element) => {
             PROPERTIES_ARRAY.push({
               name: element.name.replace(/([a-z](?=[A-Z]))/g, "$1 "),
-              search_query: `${path.normalize(propertiesPath.replace(PROPERTIES_DIR, "")).split(path.sep).join(" ")}  ${element.name
+              search_query: ` ${element.name}  ${element.name
                 .replace(/([a-z](?=[A-Z]))/g, "$1 ")
-                .toLowerCase()}`,
+                .toLowerCase()} ${path.normalize(propertiesPath.replace(PROPERTIES_DIR, "")).split(path.sep).join(" ")}  `,
               link:
                 propertiesPath
                   .replace(PROPERTIES_DIR, "")
                   .replace(".json", "") +
                 "#" +
                 element.uniqueId,
+              breadcrumb: [
+                ...path
+                  .normalize(propertiesPath.replace(PROPERTIES_DIR, ""))
+                  .split(path.sep),
+              ]
+                .filter((el) => el) // Filter out empty elements
+                .map((el) => el.split(".")[0]),
             });
           });
+          console.log(PROPERTIES_ARRAY[0].breadcrumb);
           fs.copyFileSync(
             propertiesPath,
             propertiesPath.replace(PROPERTIES_DIR, FINAL_PAGES_DIR)
@@ -152,15 +160,24 @@ async function verifyAndMoveMdxFiles(dir) {
       );
       TITTLES_ARRAY.push({
         name: meta.title,
-        search_query: `${path.normalize(FINAL_PATH.replace(FINAL_PAGES_DIR, "")).split(path.sep).join(" ")}  ${meta.title
+        search_query: `${meta.title} ${meta.title
+          .replace(/([a-z](?=[A-Z]))/g, "$1 ")
+          .toLowerCase()}  ${path.normalize(FINAL_PATH.replace(FINAL_PAGES_DIR, "")).split(path.sep).join(" ")}  ${meta.title
           .replace(/([a-z](?=[A-Z]))/g, "$1 ")
           .toLowerCase()}`,
         link: FINAL_PATH.replace(FINAL_PAGES_DIR, "").replace(".mdx", ""),
+        breadcrumb: [
+          ...path
+            .normalize(FINAL_PATH.replace(FINAL_PAGES_DIR, ""))
+            .split(path.sep),
+        ]
+          .filter((el) => el) // Filter out empty elements
+          .map((el) => el.split(".")[0]),
       });
 
       fs.writeFileSync(
         QUERIES_FILE,
-        `export const search_queries:{name:string;search_query:string ;link:string}[] = ${JSON.stringify([...TITTLES_ARRAY, ...PROPERTIES_ARRAY])};`
+        `export const search_queries:{name:string;search_query:string ;link:string; breadcrumb : null | string[]}[] = ${JSON.stringify([...TITTLES_ARRAY, ...PROPERTIES_ARRAY])};`
       );
       const FINAL_DIR = path.join(FINAL_PATH, "..");
       checkAndCreateDir(FINAL_DIR);

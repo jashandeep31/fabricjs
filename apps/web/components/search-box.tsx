@@ -4,11 +4,13 @@ import {
   useDebounce,
   useLockBodyScroll,
 } from "@uidotdev/usehooks";
-import { Search, StickyNote, X } from "lucide-react";
+import { ArrowRight, Search, StickyNote, X } from "lucide-react";
 import Flexsearch from "flexsearch";
+import Link from "next/link";
 import React, { useCallback, useEffect, useState } from "react";
 import { search_queries } from "@/search_queries";
 import { useRouter } from "next/navigation";
+import { cn } from "@/lib/utils";
 
 // Move the search index creation outside the component
 const searchIndex = new Flexsearch.Index({
@@ -72,7 +74,7 @@ const SearchBox = ({
   // search fucntionality code
   useEffect(() => {
     if (debounceSearch) {
-      const resultsArray = searchIndex.search(searchTerm);
+      const resultsArray = searchIndex.search(searchTerm, { limit: 6 });
       setFilteredSearchQueries(
         search_queries.filter((item, index) => resultsArray.includes(index))
       );
@@ -133,7 +135,18 @@ const SearchBox = ({
               </div>
               <div className="text-area w-full text-start">
                 <h2>{item.name} </h2>
-                <p className="text-xs  text-muted-foreground">{item.link}</p>
+                <div className="flex items-center gap-2">
+                  {item.breadcrumb?.map((item, index) => (
+                    <React.Fragment key={index}>
+                      <span className={cn(index === 0 ? "hidden" : null)}>
+                        <ArrowRight size={10} />
+                      </span>
+                      <span className="text-muted-foreground text-xs">
+                        {item}
+                      </span>
+                    </React.Fragment>
+                  ))}
+                </div>
               </div>
             </button>
           ))}

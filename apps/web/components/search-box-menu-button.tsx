@@ -4,7 +4,7 @@ import SearchBox from "./search-box";
 import { Search } from "lucide-react";
 
 const SearchBoxMenuButton = () => {
-  const [searchBoxStatus, setSearchBoxStatus] = useState<boolean>(true);
+  const [searchBoxStatus, setSearchBoxStatus] = useState<boolean>(false);
 
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
