@@ -24,6 +24,7 @@ function checkAndCreateDir(dir) {
 }
 
 const TITTLES_ARRAY = [];
+const PROPERTIES_ARRAY = [];
 async function verifyAndMoveMdxFiles(dir) {
   const files = fs.readdirSync(dir);
 
@@ -125,6 +126,21 @@ async function verifyAndMoveMdxFiles(dir) {
               ".."
             )
           );
+          const propertiesData = JSON.parse(fs.readFileSync(propertiesPath));
+          propertiesData.forEach((element) => {
+            PROPERTIES_ARRAY.push({
+              name: element.name.replace(/([a-z](?=[A-Z]))/g, "$1 "),
+              search_query: `${path.normalize(propertiesPath.replace(PROPERTIES_DIR, "")).split(path.sep).join(" ")}  ${element.name
+                .replace(/([a-z](?=[A-Z]))/g, "$1 ")
+                .toLowerCase()}`,
+              link:
+                propertiesPath
+                  .replace(PROPERTIES_DIR, "")
+                  .replace(".json", "") +
+                "#" +
+                element.uniqueId,
+            });
+          });
           fs.copyFileSync(
             propertiesPath,
             propertiesPath.replace(PROPERTIES_DIR, FINAL_PAGES_DIR)
@@ -136,11 +152,15 @@ async function verifyAndMoveMdxFiles(dir) {
       );
       TITTLES_ARRAY.push({
         name: meta.title,
+        search_query: `${path.normalize(FINAL_PATH.replace(FINAL_PAGES_DIR, "")).split(path.sep).join(" ")}  ${meta.title
+          .replace(/([a-z](?=[A-Z]))/g, "$1 ")
+          .toLowerCase()}`,
         link: FINAL_PATH.replace(FINAL_PAGES_DIR, "").replace(".mdx", ""),
       });
+
       fs.writeFileSync(
         QUERIES_FILE,
-        `export const search_queries:{name:string; link:string}[] = ${JSON.stringify(TITTLES_ARRAY)};`
+        `export const search_queries:{name:string;search_query:string ;link:string}[] = ${JSON.stringify([...TITTLES_ARRAY, ...PROPERTIES_ARRAY])};`
       );
       const FINAL_DIR = path.join(FINAL_PATH, "..");
       checkAndCreateDir(FINAL_DIR);

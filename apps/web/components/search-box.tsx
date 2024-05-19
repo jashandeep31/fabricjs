@@ -17,7 +17,7 @@ const searchIndex = new Flexsearch.Index({
 
 // Add items to the search index
 search_queries.forEach((item, index) => {
-  searchIndex.add(index, item.name);
+  searchIndex.add(index, item.search_query);
 });
 
 const SearchBox = ({
@@ -137,6 +137,12 @@ const SearchBox = ({
               </div>
             </button>
           ))}
+
+          {filteredSearchQueries.length === 0 && (
+            <p className="text-center text-muted-foreground text-sm">
+              No Results found
+            </p>
+          )}
         </div>
       </div>
     </div>
