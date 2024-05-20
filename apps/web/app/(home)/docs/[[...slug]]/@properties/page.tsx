@@ -14,7 +14,6 @@ const properties = async ({ params }: { params: { slug: string[] } }) => {
   return (
     <div>
       {" "}
-      This is getting rendererd
       {properties && properties.length > 0 ? (
         <div className="mt-8">
           <h2 className="font-heading mt-12 scroll-m-20 border-b pb-2 text-2xl font-semibold tracking-tight first:mt-0">
