@@ -23,6 +23,16 @@ function checkAndCreateDir(dir) {
   }
 }
 
+console.log(`
+
+
+
+Prebuild script started 
+
+
+
+`);
+
 const TITTLES_ARRAY = [];
 const PROPERTIES_ARRAY = [];
 async function verifyAndMoveMdxFiles(dir) {
