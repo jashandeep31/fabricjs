@@ -15,11 +15,11 @@ async function main() {
   //   forceRefresh: false,
   // };
   const parameters = {
-    url: "http://fabricjs.com/docs/fabric.Path.html",
+    url: "http://fabricjs.com/docs/fabric.Image.filters.html",
     dist: "docs/html/objects",
-    currentUrl: "/docs/html/objects/path",
-    name: "Path",
-    uniqueId: "HTML.Objects.Path",
+    currentUrl: "/docs/html/objects/filters",
+    name: "Filters",
+    uniqueId: "HTML.Objects.Filters",
     forceRefresh: false,
   };
   // const parameters = {
@@ -44,7 +44,7 @@ async function main() {
   generateAllFile();
 }
 
-// main();
+main();
 const app = express();
 
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));

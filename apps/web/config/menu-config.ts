@@ -38,6 +38,10 @@ export const htmlDocsLinks: {
         label: "Image",
         path: "/docs/html/objects/image",
       },
+      {
+        label: "Filters",
+        path: "/docs/html/objects/filters",
+      },
     ],
   },
 ] as const;
